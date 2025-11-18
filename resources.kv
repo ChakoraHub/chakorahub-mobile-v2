@@ -1,0 +1,317 @@
+#:import dp kivy.metrics.dp
+#:import Window kivy.core.window.Window
+
+<HoverButton>:
+    background_normal: ''
+    background_color: self.background_color
+    font_name: "EmojiFont"
+    size_hint_y: None
+    height: dp(50)
+    color: 0.29,0.08,0.55,1
+    scale: 1
+    halign: "center"
+    valign: "middle"
+    text_size: self.size
+    canvas.before:
+        PushMatrix
+        Scale:
+            origin: self.center
+            x: self.scale
+            y: self.scale
+        Color:
+            rgba: self.background_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [8]
+        PopMatrix
+
+<CourseCard>:
+    orientation: "vertical"
+    padding: dp(6)
+    spacing: dp(6)
+    size_hint_y: None
+    height: dp(220)
+
+    RelativeLayout:
+        size_hint_y: None
+        height: dp(120)
+
+        ImageButton:
+            id: course_img
+            source: root.image_source
+            allow_stretch: True
+            keep_ratio: True
+            size_hint: 1, 1
+            on_release: root.toggle_submenu()
+
+        Label:
+            text: root.discount_label
+            color: 1,1,1,1
+            font_size: 12
+            size_hint: None, None
+            size: dp(80), dp(24)
+            pos_hint: {"right":1, "top":1}
+            canvas.before:
+                Color:
+                    rgba: 1,0,0,0.85
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [6]
+            opacity: 1 if root.discount_label else 0
+
+    Label:
+        text: root.course_name
+        size_hint_y: None
+        height: dp(40)
+        color: 0.1,0.1,0.1,1
+        font_size: 26
+        bold: True
+        halign: "center"
+        valign: "middle"
+        text_size: self.size
+
+    BoxLayout:
+        id: sub_menu
+        size_hint_y: None
+        height: 0
+        opacity: 0
+        disabled: True
+        orientation: "horizontal"
+        spacing: dp(14)
+        padding: dp(8)
+        HoverButton:
+            text: "📄 PPTs"
+            on_release: app.open_detail(root.course_name, root.submenu_id,"ppt")
+        HoverButton:
+            text: "💻 Code"
+            on_release: app.open_detail(root.course_name, root.submenu_id,"code")
+        HoverButton:
+            text: "🎥 Videos ▾"
+            on_release: root.toggle_lang_menu(self)
+        HoverButton:
+            text: "❓ Interview"
+            on_release: app.open_detail(root.course_name, root.submenu_id,"interview")
+
+    BoxLayout:
+        id: sub_lang
+        size_hint_y: None
+        height: 0
+        opacity: 0
+        disabled: True
+        orientation: "horizontal"
+        spacing: dp(10)
+        padding: dp(6)
+        HoverButton:
+            text: "Telugu"
+            on_release: app.open_detail(root.course_name, root.submenu_id,"videos_telugu")
+        HoverButton:
+            text: "English"
+            on_release: app.open_detail(root.course_name, root.submenu_id,"videos_english")
+        HoverButton:
+            text: "Hindi"
+            on_release: app.open_detail(root.course_name, root.submenu_id,"videos_hindi")
+
+<ResourcesScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # Header
+        BoxLayout:
+            id: header
+            size_hint_y: None
+            height: dp(100)
+            padding: dp(30), dp(10)
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Image:
+                source: root.image_path("logo.png")
+                size_hint_x: None
+                width: dp(80)
+            Label:
+                text: root.greeting if root.greeting else "ChakoraHub"
+                font_size: "26sp"
+                bold: True
+                color: 1,1,1,1
+            AnchorLayout:
+                anchor_x: 'right'
+                size_hint_x: None
+                width: dp(70)
+                ImageButton:
+                    id: profile_button
+                    source: root.profile_pic
+                    size_hint: None, None
+                    size: dp(50), dp(50)
+                    on_release: root.open_profile_dropdown(self)
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1
+                        Ellipse:
+                            pos: self.pos
+                            size: self.size
+
+        # Body - FIXED GREY BOX ISSUE
+        BoxLayout:
+            orientation: "horizontal"
+            canvas.before:
+                Color:
+                    rgba: 1,1,1,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            # Sidebar - UPDATED WITH NEW BUTTONS
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_x: None
+                width: dp(230)
+                padding: dp(20)
+                spacing: dp(8)
+                canvas.before:
+                    Color:
+                        rgba: 0.97,0.97,0.97,1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                ScrollView:
+                    do_scroll_x: False
+                    GridLayout:
+                        cols: 1
+                        size_hint_y: None
+                        height: self.minimum_height
+                        spacing: dp(4)
+                        HoverButton:
+                            text: "📚 Courses Syllabus"
+                        HoverButton:
+                            text: "⏰ Meeting Hours"
+                        HoverButton:
+                            text: "✍ Blogger"
+                            on_release: root.open_blogger()  # NEW: Blogger button
+                        HoverButton:
+                            text: "📩 Enquiry"
+                            on_release: root.open_enquiry()
+                        HoverButton:
+                            text: "🕒 Book Session"
+                        HoverButton:
+                            text: "🎬 Demo Videos"
+                            on_release: root.open_demo_videos()  # NEW: Demo Videos button
+                        HoverButton:
+                            text: "🖍 Practice Tests"
+                        HoverButton:
+                            text: "💬 Feedback"
+                            on_release: root.open_feedback()
+                        HoverButton:
+                            text: "📅 Calendar"
+                            on_release: root.open_calendar()
+                        HoverButton:
+                            text: "👨‍💼 Admin Register"
+                            on_release: root.open_admin_register()
+                        HoverButton:
+                            text: "📊 Student Report"
+                            on_release: root.open_student_report()
+                        # In resources.kv - Add this button to the sidebar GridLayout
+                        HoverButton:  
+                            text: "📤 Upload Files"
+                            on_release: root.open_upload_portal()
+                        HoverButton:
+                            text: "🎁 Offers"
+                            on_release: root.open_offers()
+            # Course Grid - FIXED BACKGROUND
+            ScrollView:
+                do_scroll_x: False
+                canvas.before:
+                    Color:
+                        rgba: 1,1,1,1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                GridLayout:
+                    id: course_grid
+                    cols: 3
+                    padding: dp(20)
+                    spacing: dp(12)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    row_default_height: dp(220)
+                    row_force_default: True
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                    CourseCard:
+                        course_name: "Informatica"
+                        image_source: root.image_path("informatica.png")
+                        submenu_id: "sub1"
+                        offers: root.offers
+                    CourseCard:
+                        course_name: "Unix"
+                        image_source: root.image_path("unix.png")
+                        submenu_id: "sub2"
+                        offers: root.offers
+                    CourseCard:
+                        course_name: "Oracle"
+                        image_source: root.image_path("Oracle.png")
+                        submenu_id: "sub3"
+                        offers: root.offers
+                    CourseCard:
+                        course_name: "IICS"
+                        image_source: root.image_path("iics.png")
+                        submenu_id: "sub4"
+                        offers: root.offers
+                    CourseCard:
+                        course_name: "Python for web development"
+                        image_source: root.image_path("python_web.png")
+                        submenu_id: "sub5"
+                        offers: root.offers
+                    CourseCard:
+                        course_name: "Informatica MDM"
+                        image_source: root.image_path("Informatica-MDM.png")
+                        submenu_id: "sub6"
+                        offers: root.offers
+                    CourseCard:
+                        course_name: "Informatica BDM"
+                        image_source: root.image_path("informaticaBDM.png")
+                        submenu_id: "sub7"
+                        offers: root.offers
+                    CourseCard:
+                        course_name: "Python for automation"
+                        image_source: root.image_path("python with automation.png")
+                        submenu_id: "sub8"
+                        offers: root.offers
+                    CourseCard:
+                        course_name: "Snowflake"
+                        image_source: root.image_path("snowflake.png")
+                        submenu_id: "sub9"
+                        offers: root.offers
+
+        # Footer
+        BoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: "ChakoraHub © 2025. All rights reserved."
+                color: 1,1,1,1
+                halign: "center"
+                valign: "middle"
+                text_size: self.size

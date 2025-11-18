@@ -1,0 +1,292 @@
+#:import dp kivy.metrics.dp
+
+<HoverButton>:
+    background_normal: ''
+    background_color: self.background_color
+    font_name: "EmojiFont"
+    size_hint_y: None
+    height: dp(50)
+    color: 0.29,0.08,0.55,1
+    scale: 1
+    halign: "center"
+    valign: "middle"
+    text_size: self.size
+    canvas.before:
+        PushMatrix
+        Scale:
+            origin: self.center
+            x: self.scale
+            y: self.scale
+        Color:
+            rgba: self.background_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [8]
+        PopMatrix
+
+<EnquiryScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Rectangle:
+                source: "images/background.jpg"
+                pos: self.pos
+                size: self.size
+
+        # ---------- HEADER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(100)
+            padding: dp(30), dp(10)
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Image:
+                source: "images/logo.png"
+                size_hint_x: None
+                width: dp(80)
+
+            Label:
+                text: "Enquiry"
+                font_size: "26sp"
+                bold: True
+                color: 1,1,1,1
+
+            AnchorLayout:
+                anchor_x: 'right'
+                size_hint_x: None
+                width: dp(70)
+                ImageButton:
+                    id: profile_button
+                    source: root.profile_pic
+                    size_hint: None, None
+                    size: dp(50), dp(50)
+                    on_release: root.open_profile_dropdown(self)
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1
+                        Ellipse:
+                            pos: self.pos
+                            size: self.size
+
+        # ---------- SCROLLABLE CONTENT ----------
+        ScrollView:
+            do_scroll_x: False
+            bar_width: dp(10)
+            
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(40)
+                padding: dp(20)
+
+                # Top spacer for better spacing from header
+                Widget:
+                    size_hint_y: None
+                    height: dp(40)
+
+                # ---------- WHITE CARD ----------
+                AnchorLayout:
+                    anchor_x: "center"
+                    size_hint_y: None
+                    height: dp(520)
+                    
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: None, None
+                        size: dp(500), dp(520)
+                        padding: dp(20)
+                        spacing: dp(14)
+                        canvas.before:
+                            Color:
+                                rgba: 1, 1, 1, 0.95
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [15]
+                            Color:
+                                rgba: 0, 0, 0, 0.15
+                            RoundedRectangle:
+                                pos: [self.x+4, self.y-4]
+                                size: self.size
+                                radius: [15]
+
+                        Label:
+                            text: "[b]Enquiry Form[/b]"
+                            markup: True
+                            font_size: "28sp"
+                            color: 0, 0, 0, 1
+                            halign: "center"
+                            size_hint_y: None
+                            height: dp(50)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(8)
+                            size_hint_y: None
+                            height: dp(75)
+                            Label:
+                                text: "Name"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(30)
+                            TextInput:
+                                id: name_input
+                                hint_text: "Enter your name"
+                                multiline: False
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(40)
+                                padding: dp(10)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(8)
+                            size_hint_y: None
+                            height: dp(75)
+                            Label:
+                                text: "Email"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(30)
+                            TextInput:
+                                id: email_input
+                                hint_text: "Enter your email"
+                                multiline: False
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(40)
+                                padding: dp(10)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(8)
+                            size_hint_y: None
+                            height: dp(75)
+                            Label:
+                                text: "Phone"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(30)
+                            TextInput:
+                                id: phone_input
+                                hint_text: "Enter your phone number"
+                                multiline: False
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(40)
+                                padding: dp(10)
+
+                        Widget:
+                            size_hint_y: None
+                            height: dp(10)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(8)
+                            size_hint_y: None
+                            height: dp(120)
+                            Label:
+                                text: "Your Enquiry"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(30)
+                            TextInput:
+                                id: enquiry_input
+                                hint_text: "Type your enquiry here..."
+                                multiline: True
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(80)
+                                padding: dp(10)
+
+                        Widget:
+                            size_hint_y: None
+                            height: dp(5)
+
+                        Button:
+                            text: "✅ Submit Enquiry"
+                            size_hint_y: None
+                            height: dp(50)
+                            font_size: "18sp"
+                            bold: True
+                            background_normal: ""
+                            background_color: 0, 0.7, 0, 1
+                            color: 1, 1, 1, 1
+                            on_release: root.submit_enquiry()
+                            canvas.before:
+                                Color:
+                                    rgba: self.background_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [10]
+
+                # ---------- BACK BUTTON ----------
+                AnchorLayout:
+                    anchor_x: "center"
+                    size_hint_y: None
+                    height: dp(60)
+                    
+                    Button:
+                        text: "⬅️  Back to Resources"
+                        font_size: '18sp'
+                        bold: True
+                        size_hint: None, None
+                        size: dp(250), dp(50)
+                        background_normal: ''
+                        background_color: 0.0, 0.48, 1, 1
+                        color: 1, 1, 1, 1
+                        on_release: root.go_back_to_resources()
+                        canvas.before:
+                            Color:
+                                rgba: self.background_color
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [12]
+
+                # Bottom spacer for better spacing
+                Widget:
+                    size_hint_y: None
+                    height: dp(60)
+
+        # ---------- FOOTER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: "ChakoraHub © 2025. All rights reserved."
+                color: 1,1,1,1
+                halign: "center"
+                valign: "middle"
+                text_size: self.size

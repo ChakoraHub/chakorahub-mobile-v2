@@ -1,0 +1,400 @@
+#:import dp kivy.metrics.dp
+
+<HoverButton>:
+    background_normal: ''
+    background_color: self.default_color
+    size_hint_y: None
+    height: dp(50)
+    color: 0.29,0.08,0.55,1
+    scale: 1
+    halign: "center"
+    valign: "middle"
+    text_size: self.size
+    canvas.before:
+        PushMatrix
+        Scale:
+            origin: self.center
+            x: self.scale
+            y: self.scale
+        Color:
+            rgba: self.background_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [8]
+        PopMatrix
+
+<DropdownHoverButton>:
+    background_color: 0.95, 0.95, 1, 1
+    color: 0.29, 0.08, 0.55, 1
+    font_size: '16sp'
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<RegisterScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Rectangle:
+                source: "images/background.jpg"
+                pos: self.pos
+                size: self.size
+
+        # ---------- HEADER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(100)
+            padding: dp(30), dp(10)
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Image:
+                source: "images/logo.png"
+                size_hint_x: None
+                width: dp(80)
+
+            Label:
+                text: "Register"
+                font_size: "26sp"
+                bold: True
+                color: 1,1,1,1
+
+            # Empty widget to balance the layout (replacing profile button)
+            Widget:
+                size_hint_x: None
+                width: dp(70)
+
+        # ---------- SCROLLABLE CONTENT ----------
+        ScrollView:
+            do_scroll_x: False
+            bar_width: dp(10)
+            
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(20)
+                padding: dp(20)
+
+                # Top spacer for better spacing from header
+                Widget:
+                    size_hint_y: None
+                    height: dp(20)
+
+                # ---------- WHITE CARD ----------
+                AnchorLayout:
+                    anchor_x: "center"
+                    size_hint_y: None
+                    height: dp(650)
+                    
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: None, None
+                        size: dp(500), dp(650)
+                        padding: dp(20)
+                        spacing: dp(12)
+                        canvas.before:
+                            Color:
+                                rgba: 1, 1, 1, 0.95
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [15]
+                            Color:
+                                rgba: 0, 0, 0, 0.15
+                            RoundedRectangle:
+                                pos: [self.x+4, self.y-4]
+                                size: self.size
+                                radius: [15]
+
+                        Label:
+                            text: "[b]User Registration[/b]"
+                            markup: True
+                            font_size: "28sp"
+                            color: 0, 0, 0, 1
+                            halign: "center"
+                            size_hint_y: None
+                            height: dp(50)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(6)
+                            size_hint_y: None
+                            height: dp(65)
+                            Label:
+                                text: "User Type"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(25)
+                            Spinner:
+                                id: usertype
+                                text: "Select Type"
+                                values: ["student", "public"]
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(35)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(6)
+                            size_hint_y: None
+                            height: dp(65)
+                            Label:
+                                text: "Username"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(25)
+                            TextInput:
+                                id: username
+                                hint_text: "Enter your username"
+                                multiline: False
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(35)
+                                padding: dp(10)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(6)
+                            size_hint_y: None
+                            height: dp(65)
+                            Label:
+                                text: "Email"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(25)
+                            TextInput:
+                                id: email
+                                hint_text: "Enter your email"
+                                multiline: False
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(35)
+                                padding: dp(10)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(6)
+                            size_hint_y: None
+                            height: dp(65)
+                            Label:
+                                text: "Phone"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(25)
+                            TextInput:
+                                id: phone
+                                hint_text: "Enter 10-digit phone number"
+                                input_filter: "int"
+                                multiline: False
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(35)
+                                padding: dp(10)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(6)
+                            size_hint_y: None
+                            height: dp(65)
+                            Label:
+                                text: "Location"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(25)
+                            TextInput:
+                                id: location
+                                hint_text: "Enter your location"
+                                multiline: False
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(35)
+                                padding: dp(10)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(6)
+                            size_hint_y: None
+                            height: dp(65)
+                            Label:
+                                text: "Gothram"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(25)
+                            TextInput:
+                                id: gothram
+                                hint_text: "Enter your gothram"
+                                multiline: False
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(35)
+                                padding: dp(10)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(6)
+                            size_hint_y: None
+                            height: dp(65)
+                            Label:
+                                text: "Password"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(25)
+                            TextInput:
+                                id: password
+                                hint_text: "Enter password"
+                                password: True
+                                multiline: False
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(35)
+                                padding: dp(10)
+
+                        BoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(6)
+                            size_hint_y: None
+                            height: dp(65)
+                            Label:
+                                text: "Confirm Password"
+                                color: 0, 0, 0, 1
+                                font_size: "16sp"
+                                bold: True
+                                halign: "left"
+                                text_size: self.size
+                                size_hint_y: None
+                                height: dp(25)
+                            TextInput:
+                                id: confirm_password
+                                hint_text: "Confirm your password"
+                                password: True
+                                multiline: False
+                                font_size: "16sp"
+                                size_hint_y: None
+                                height: dp(35)
+                                padding: dp(10)
+
+                        Widget:
+                            size_hint_y: None
+                            height: dp(10)
+
+                        BoxLayout:
+                            orientation: "horizontal"
+                            spacing: dp(10)
+                            size_hint_y: None
+                            height: dp(50)
+                            
+                            Button:
+                                text: "Register"
+                                font_size: "18sp"
+                                bold: True
+                                background_normal: ""
+                                background_color: 0, 0.7, 0, 1
+                                color: 1, 1, 1, 1
+                                on_release: root.register_user()
+                                canvas.before:
+                                    Color:
+                                        rgba: self.background_color
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [10]
+
+                            Button:
+                                text: "Clear"
+                                font_size: "18sp"
+                                bold: True
+                                background_normal: ""
+                                background_color: 0.8, 0.2, 0.2, 1
+                                color: 1, 1, 1, 1
+                                on_release: root.clear_fields()
+                                canvas.before:
+                                    Color:
+                                        rgba: self.background_color
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [10]
+
+                # ---------- BACK BUTTON ----------
+                AnchorLayout:
+                    anchor_x: "center"
+                    size_hint_y: None
+                    height: dp(60)
+                    
+                    Button:
+                        text: "⬅️  Back to Home"
+                        font_size: '18sp'
+                        bold: True
+                        size_hint: None, None
+                        size: dp(250), dp(50)
+                        background_normal: ''
+                        background_color: 0.0, 0.48, 1, 1
+                        color: 1, 1, 1, 1
+                        on_release: root.go_back_to_home()
+                        canvas.before:
+                            Color:
+                                rgba: self.background_color
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [12]
+
+                # Bottom spacer for better spacing
+                Widget:
+                    size_hint_y: None
+                    height: dp(40)
+
+        # ---------- FOOTER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: "ChakoraHub © 2025. All rights reserved."
+                color: 1,1,1,1
+                halign: "center"
+                valign: "middle"
+                text_size: self.size

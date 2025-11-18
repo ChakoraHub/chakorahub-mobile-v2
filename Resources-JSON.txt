@@ -1,0 +1,35 @@
+{
+  "status": "success",
+  "course_list": [
+    {
+      "course_id": 1,
+      "course_name": "Informatica",
+      "image_url": "https://example.com/images/informatica.png"
+    },
+    {
+      "course_id": 2,
+      "course_name": "Unix",
+      "image_url": "https://example.com/images/unix.png"
+    },
+    {
+      "course_id": 3,
+      "course_name": "Oracle",
+      "image_url": "https://example.com/images/oracle.png"
+    },
+    {
+      "course_id": 4,
+      "course_name": "IICS",
+      "image_url": "https://example.com/images/iics.png"
+    },
+    {
+      "course_id": 5,
+      "course_name": "Python for Web Development",
+      "image_url": "https://example.com/images/python_web.png"
+    },
+    {
+      "course_id": 6,
+      "course_name": "Informatica MDM",
+      "image_url": "https://example.com/images/informatica_mdm.png"
+    }
+  ]
+}

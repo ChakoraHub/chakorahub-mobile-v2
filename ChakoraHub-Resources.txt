@@ -1,0 +1,78 @@
+import json
+
+def lambda_handler(event, context):
+Everyone
+ 
+# API Gateway
+cors_headers = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'https://www.chakorahub.com',
+        'Access-Control-Allow-Methods': 'PUT, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+        'Access-Control-Allow-Credentials': 'true'
+    }
+ 
+# Process private key
+    try:
+        from cryptography.hazmat.backends import default_backend
+        from cryptography.hazmat.primitives import serialization
+ 
+        p_key = serialization.load_pem_private_key(
+           PRIVATE_KEY_CONTENT.encode(),
+           password=os.environ.get('PRIVATE_KEY_PASSPHRASE').encode() if os.environ.get('PRIVATE_KEY_PASSPHRASE') else None,
+           backend=default_backend()
+        )
+ 
+        PKB = p_key.private_bytes(
+            encoding=serialization.Encoding.DER,
+            format=serialization.PrivateFormat.PKCS8,
+            encryption_algorithm=serialization.NoEncryption()
+        )
+        print("✅ Private key processed successfully")
+    except Exception as e:
+        print(f"❌ Error processing private key: {str(e)}")
+        return {
+            'statusCode': 500,
+            'headers': cors_headers,
+            'body': json.dumps({'message': 'Key processing failed', 'error': str(e)})
+        }
+ 
+
+    courses = [
+        {
+            "course_id": 1,
+            "course_name": "Informatica",
+            "image_url": "https://example.com/images/informatica.png"
+        },
+        {
+            "course_id": 2,
+            "course_name": "Unix",
+            "image_url": "https://example.com/images/unix.png"
+        },
+        {
+            "course_id": 3,
+            "course_name": "Oracle",
+            "image_url": "https://example.com/images/oracle.png"
+        },
+        {
+            "course_id": 4,
+            "course_name": "IICS",
+            "image_url": "https://example.com/images/iics.png"
+        },
+        {
+            "course_id": 5,
+            "course_name": "Python for Web Development",
+            "image_url": "https://example.com/images/python_web.png"
+        },
+        {
+            "course_id": 6,
+            "course_name": "Informatica MDM",
+            "image_url": "https://example.com/images/informatica_mdm.png"
+        }
+    ]
+
+    return {
+        "statusCode": 200,
+        "headers": {"Content-Type": "application/json"},
+        "body": json.dumps({"status": "success", "course_list": courses})
+    }

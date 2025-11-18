@@ -1,0 +1,42 @@
+{
+  "get_demo_videos": {
+    "action": "get_demo_videos"
+  },
+  "get_offers": {
+    "action": "get_offers"
+  },
+  "get_practice_tests_by_subject": {
+    "action": "get_practice_tests",
+    "subject": "Mathematics"
+  },
+  "submit_feedback_by_email": {
+    "action": "submit_feedback",
+    "email": "student@example.com",
+    "name": "John Doe",
+    "feedback": "This platform is awesome!"
+  },
+  "submit_feedback_by_student_id": {
+    "action": "submit_feedback",
+    "student_id": 123,
+    "name": "John Doe",
+    "feedback": "I liked the session, thanks!"
+  },
+  "get_calendar_slots_jan_2025": {
+    "action": "get_calendar_slots",
+    "year": 2025,
+    "month": 1
+  },
+  "get_student_report": {
+    "action": "get_student_report"
+  },
+  "get_blogs": {
+    "action": "get_blogs"
+  },
+  "get_billing_entries_all": {
+    "action": "get_billing_entries"
+  },
+  "get_billing_entries_for_user": {
+    "action": "get_billing_entries",
+    "user_id": 42
+  }
+}

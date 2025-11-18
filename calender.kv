@@ -1,0 +1,212 @@
+#:import dp kivy.metrics.dp
+#:import Window kivy.core.window.Window
+
+<CalendarDayButton>:
+    font_size: '10sp'
+    markup: True
+    halign: "center"
+    valign: "top"
+    text_size: self.width, None
+    size_hint: (1, None)
+    height: dp(50)
+    background_normal: ''
+    background_color: self.background_color
+    color: self.color
+    padding: dp(2), dp(2)
+
+<WeekdayHeader@Button>:
+    font_size: '12sp'
+    size_hint: (1, None)
+    height: dp(35)
+    background_normal: ''
+    background_color: (0.0, 0.48, 1.0, 1)
+    color: (1, 1, 1, 1)
+    bold: True
+
+<HoverButton>:
+    background_normal: ''
+    background_color: self.background_color
+    font_name: "EmojiFont"
+    size_hint_y: None
+    height: dp(50)
+    color: 0.29,0.08,0.55,1
+    scale: 1
+    halign: "center"
+    valign: "middle"
+    text_size: self.size
+    canvas.before:
+        PushMatrix
+        Scale:
+            origin: self.center
+            x: self.scale
+            y: self.scale
+        Color:
+            rgba: self.background_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [8]
+        PopMatrix
+
+<DropdownHoverButton@HoverButton>:
+    size_hint_y: None
+    height: dp(48)
+    color: (0.29, 0.08, 0.55, 1)
+
+<CalendarScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 0
+        spacing: 0
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # ---------- HEADER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(100)
+            padding: dp(30), dp(10)
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Image:
+                source: "images/logo.png"
+                size_hint_x: None
+                width: dp(80)
+
+            Label:
+                text: "Calendar"
+                font_size: "26sp"
+                bold: True
+                color: 1,1,1,1
+
+            AnchorLayout:
+                anchor_x: 'right'
+                size_hint_x: None
+                width: dp(70)
+                ImageButton:
+                    id: profile_button
+                    source: root.profile_pic
+                    size_hint: None, None
+                    size: dp(50), dp(50)
+                    on_release: root.open_profile_dropdown(self)
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1
+                        Ellipse:
+                            pos: self.pos
+                            size: self.size
+
+        # Main content area - Clean white background
+        BoxLayout:
+            orientation: "vertical"
+            padding: dp(15)
+            spacing: dp(10)
+
+            # Month navigation
+            BoxLayout:
+                size_hint_y: None
+                height: dp(50)
+                spacing: dp(10)
+                
+                # Previous month button
+                Button:
+                    text: "← Previous"
+                    size_hint_x: None
+                    width: dp(120)
+                    background_color: (0.2, 0.6, 1, 1)
+                    background_normal: ''
+                    color: (1, 1, 1, 1)
+                    font_size: '14sp'
+                    on_release: root.change_month(-1)
+                
+                # Month label
+                Label:
+                    id: month_label
+                    text: "Month Year"
+                    font_size: '20sp'
+                    bold: True
+                    color: (0.29, 0.08, 0.55, 1)
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+                
+                # Next month button
+                Button:
+                    text: "Next →"
+                    size_hint_x: None
+                    width: dp(120)
+                    background_color: (0.2, 0.6, 1, 1)
+                    background_normal: ''
+                    color: (1, 1, 1, 1)
+                    font_size: '14sp'
+                    on_release: root.change_month(1)
+
+            # Calendar container with proper scrolling
+            ScrollView:
+                do_scroll_x: False
+                scroll_type: ['bars', 'content']
+                bar_width: dp(8)
+                bar_color: 0.56, 0.42, 0.80, 0.7
+                bar_inactive_color: 0.56, 0.42, 0.80, 0.3
+                
+                GridLayout:
+                    id: calendar_grid
+                    cols: 7
+                    spacing: dp(1)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: dp(5)
+
+            # Back to Resources button BELOW calendar
+            AnchorLayout:
+                anchor_x: "center"
+                size_hint_y: None
+                height: dp(50)
+                
+                Button:
+                    text: "⬅️  Back to Resources"
+                    font_size: '16sp'
+                    bold: True
+                    size_hint: None, None
+                    size: dp(220), dp(45)
+                    background_normal: ''
+                    background_color: 0.0, 0.48, 1, 1
+                    color: 1, 1, 1, 1
+                    on_release: root.go_back_to_resources()
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10]
+
+        # ---------- FOOTER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: "ChakoraHub © 2025. All rights reserved."
+                color: 1,1,1,1
+                halign: "center"
+                valign: "middle"
+                text_size: self.size
+
+# ImageButton for profile
+<ImageButton@ButtonBehavior+Image>:

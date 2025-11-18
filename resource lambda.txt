@@ -1,0 +1,403 @@
+import os
+import json
+import traceback
+import snowflake.connector
+from snowflake.connector import DictCursor
+
+# ---------- DB connection helper ----------
+def get_db_connection():
+    """
+    Return a Snowflake connection using environment variables.
+    Ensure the Lambda environment has these variables set.
+    """
+    user = os.environ.get("SNOWFLAKE_USER")
+    pwd = os.environ.get("SNOWFLAKE_PASSWORD")
+    account = os.environ.get("SNOWFLAKE_ACCOUNT")
+    warehouse = os.environ.get("SNOWFLAKE_WAREHOUSE")
+    database = os.environ.get("SNOWFLAKE_DATABASE", "CHAKORA")
+    schema = os.environ.get("SNOWFLAKE_SCHEMA", "NRM")
+    role = os.environ.get("SNOWFLAKE_ROLE")
+
+    if not (user and pwd and account and warehouse):
+        raise RuntimeError("Missing Snowflake connection environment variables")
+
+    conn_args = {
+        "user": user,
+        "password": pwd,
+        "account": account,
+        "warehouse": warehouse,
+        "database": database,
+        "schema": schema,
+    }
+    if role:
+        conn_args["role"] = role
+
+    return snowflake.connector.connect(**conn_args)
+
+# ---------- Lambda handler ----------
+def lambda_handler(event, context):
+
+ 
+# API Gateway
+cors_headers = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'https://www.chakorahub.com',
+        'Access-Control-Allow-Methods': 'PUT, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+        'Access-Control-Allow-Credentials': 'true'
+    }
+ 
+# Process private key
+    try:
+        from cryptography.hazmat.backends import default_backend
+        from cryptography.hazmat.primitives import serialization
+ 
+        p_key = serialization.load_pem_private_key(
+           PRIVATE_KEY_CONTENT.encode(),
+           password=os.environ.get('PRIVATE_KEY_PASSPHRASE').encode() if os.environ.get('PRIVATE_KEY_PASSPHRASE') else None,
+           backend=default_backend()
+        )
+ 
+        PKB = p_key.private_bytes(
+            encoding=serialization.Encoding.DER,
+            format=serialization.PrivateFormat.PKCS8,
+            encryption_algorithm=serialization.NoEncryption()
+        )
+        print("✅ Private key processed successfully")
+    except Exception as e:
+        print(f"❌ Error processing private key: {str(e)}")
+        return {
+            'statusCode': 500,
+            'headers': cors_headers,
+            'body': json.dumps({'message': 'Key processing failed', 'error': str(e)})
+        }
+
+    """
+    event: JSON object with at least {"action": "<action_name>", ...}
+    Returns: JSON dictionary (will be serialized by Lambda)
+    """
+    try:
+        if isinstance(event, str):
+            event = json.loads(event)
+
+        action = event.get("action")
+        if not action:
+            return _err("Missing 'action' in request")
+
+        # route actions
+        if action == "get_demo_videos":
+            return _ok(get_demo_videos())
+
+        if action == "get_offers":
+            return _ok(get_offers())
+
+        if action == "get_practice_tests":
+            subject = event.get("subject", None)
+            return _ok(get_practice_tests(subject))
+
+        if action == "submit_feedback":
+            return _ok(submit_feedback(event))
+
+        if action == "get_calendar_slots":
+            year = event.get("year")
+            month = event.get("month")
+            return _ok(get_calendar_slots(year, month))
+
+        if action == "get_student_report":
+            return _ok(get_student_report())
+
+        if action == "get_blogs":
+            return _ok(get_blogs())
+
+        if action == "get_billing_entries":
+            # optional filters
+            user_id = event.get("user_id")
+            return _ok(get_billing_entries(user_id))
+
+        return _err(f"Unknown action '{action}'")
+
+    except Exception as e:
+        tb = traceback.format_exc()
+        return {
+            "status": "error",
+            "message": str(e),
+            "traceback": tb
+        }
+
+# ---------- Response helpers ----------
+def _ok(data):
+    return {"status": "success", "data": data}
+
+def _err(msg):
+    return {"status": "error", "message": msg}
+
+# ---------- Action implementations ----------
+def get_demo_videos():
+    """
+    Returns rows from nrm_demo_videos:
+    id, youtube_id, title, created_at
+    """
+    conn = get_db_connection()
+    try:
+        cur = conn.cursor(DictCursor)
+        cur.execute("""
+            SELECT id, youtube_id, title, created_at
+            FROM nrm_demo_videos
+            ORDER BY id ASC
+        """)
+        rows = cur.fetchall()
+        return [dict(r) for r in rows]
+    finally:
+        try: cur.close()
+        except: pass
+        conn.close()
+
+def get_offers():
+    """
+    Returns active offers joined with course info (if course table exists).
+    We attempt to join nrm_courses when present. If the table isn't present,
+    return the offers table columns.
+    """
+    conn = get_db_connection()
+    try:
+        cur = conn.cursor(DictCursor)
+        # Try to select with join to nrm_courses — if that fails, fallback
+        try:
+            cur.execute("""
+                SELECT o.id AS offer_id,
+                       o.course_id,
+                       c.course_name,
+                       c.course_fee,
+                       o.discount_percentage,
+                       o.valid_from,
+                       o.valid_to,
+                       o.is_active
+                FROM nrm_offers o
+                LEFT JOIN nrm_courses c ON o.course_id = c.id
+                WHERE o.is_active = 1
+                ORDER BY o.created_at DESC NULLS LAST
+            """)
+        except Exception:
+            # Fallback: no nrm_courses present
+            cur.execute("""
+                SELECT id AS offer_id, course_id, discount_percentage, valid_from, valid_to, is_active
+                FROM nrm_offers
+                WHERE is_active = 1
+                ORDER BY created_at DESC NULLS LAST
+            """)
+        rows = cur.fetchall()
+        # Convert Decimal and date objects to strings/numbers if necessary
+        result = []
+        for r in rows:
+            item = dict(r)
+            # normalize numeric fields
+            if "COURSE_FEE" in item and item["COURSE_FEE"] is not None:
+                # convert to float for JSON
+                try:
+                    item["course_fee"] = float(item.pop("COURSE_FEE"))
+                except Exception:
+                    pass
+            if "DISCOUNT_PERCENTAGE" in item and item["DISCOUNT_PERCENTAGE"] is not None:
+                try:
+                    item["discount_percentage"] = float(item.pop("DISCOUNT_PERCENTAGE"))
+                except Exception:
+                    pass
+            # ensure dates are strings
+            if "VALID_FROM" in item and item["VALID_FROM"] is not None:
+                item["valid_from"] = str(item.get("VALID_FROM"))
+            if "VALID_TO" in item and item["VALID_TO"] is not None:
+                item["valid_to"] = str(item.get("VALID_TO"))
+            # add discounted fee if course_fee and discount present
+            fee = item.get("course_fee") or item.get("COURSE_FEE")
+            disc = item.get("discount_percentage")
+            if fee is not None and disc is not None:
+                try:
+                    item["discounted_fee"] = round(float(fee) - (float(fee) * float(disc) / 100.0), 2)
+                except Exception:
+                    pass
+            result.append(item)
+        return result
+    finally:
+        try: cur.close()
+        except: pass
+        conn.close()
+
+def get_practice_tests(subject=None):
+    """
+    Returns practice tests from PRACTICE_TESTS table (if available).
+    subject is optional filter.
+    """
+    conn = get_db_connection()
+    try:
+        cur = conn.cursor(DictCursor)
+        if subject:
+            cur.execute("""
+                SELECT file_name, file_path, subject
+                FROM PRACTICE_TESTS
+                WHERE subject = %s
+                ORDER BY file_name
+            """, (subject,))
+        else:
+            cur.execute("""
+                SELECT file_name, file_path, subject
+                FROM PRACTICE_TESTS
+                ORDER BY subject, file_name
+            """)
+        rows = cur.fetchall()
+        return [dict(r) for r in rows]
+    finally:
+        try: cur.close()
+        except: pass
+        conn.close()
+
+def submit_feedback(event):
+    """
+    Insert feedback into nrm_feedback.
+    Required in event: email OR student_id, and feedback (text). Name optional.
+    """
+    feedback_text = event.get("feedback")
+    name = event.get("name")
+    email = event.get("email")
+    student_id = event.get("student_id")
+
+    if not feedback_text:
+        raise ValueError("Missing 'feedback' text")
+
+    conn = get_db_connection()
+    try:
+        cur = conn.cursor()
+        # resolve student_id if email provided
+        if not student_id:
+            if not email:
+                raise ValueError("submit_feedback requires either student_id or email")
+            # attempt to find student by email
+            cur2 = conn.cursor(DictCursor)
+            cur2.execute("SELECT id FROM nrm_students WHERE email = %s LIMIT 1", (email,))
+            row = cur2.fetchone()
+            cur2.close()
+            if not row:
+                raise ValueError("Student with provided email not found")
+            student_id = row["ID"] if "ID" in row else row.get("id")
+
+        # Insert feedback
+        cur.execute("""
+            INSERT INTO nrm_feedback (student_id, name, feedback_message, submitted_at)
+            VALUES (%s, %s, %s, CURRENT_TIMESTAMP)
+        """, (student_id, name, feedback_text))
+        conn.commit()
+        return {"message": "Feedback submitted", "student_id": student_id}
+    finally:
+        try: cur.close()
+        except: pass
+        conn.close()
+
+def get_calendar_slots(year, month):
+    """
+    Returns booked time slots per date using nrm_session_bookings and nrm_time_slots.
+    year and month required (integers).
+    """
+    if not year or not month:
+        raise ValueError("year and month are required (e.g. 2025, 1)")
+
+    conn = get_db_connection()
+    try:
+        cur = conn.cursor(DictCursor)
+        # session_date is DATE in your schema — use EXTRACT
+        cur.execute("""
+            SELECT s.session_date, t.slot_label
+            FROM nrm_session_bookings s
+            LEFT JOIN nrm_time_slots t ON s.time_slot_id = t.id
+            WHERE EXTRACT(YEAR FROM s.session_date) = %s
+              AND EXTRACT(MONTH FROM s.session_date) = %s
+            ORDER BY s.session_date, t.id
+        """, (year, month))
+        rows = cur.fetchall()
+        result = {}
+        for r in rows:
+            date_str = str(r["SESSION_DATE"])
+            result.setdefault(date_str, []).append(r.get("SLOT_LABEL"))
+        return result
+    finally:
+        try: cur.close()
+        except: pass
+        conn.close()
+
+def get_student_report():
+    """
+    Return a student report by joining registrations, students and (optionally) courses.
+    Uses nrm_registrations, nrm_students and nrm_courses (if exists).
+    """
+    conn = get_db_connection()
+    try:
+        cur = conn.cursor(DictCursor)
+        # Attempt join with courses if table present
+        try:
+            cur.execute("""
+                SELECT r.registration_id, r.student_id, s.first_name, s.last_name, s.email, s.phone,
+                       r.course_id, c.course_name, r.start_date, r.status_id, r.created_dt
+                FROM nrm_registrations r
+                LEFT JOIN nrm_students s ON r.student_id = s.id
+                LEFT JOIN nrm_courses c ON r.course_id = c.id
+                ORDER BY r.created_dt DESC NULLS LAST
+                LIMIT 1000
+            """)
+        except Exception:
+            # fallback if nrm_courses doesn't exist
+            cur.execute("""
+                SELECT r.registration_id, r.student_id, s.first_name, s.last_name, s.email, s.phone,
+                       r.course_id, r.start_date, r.status_id, r.created_dt
+                FROM nrm_registrations r
+                LEFT JOIN nrm_students s ON r.student_id = s.id
+                ORDER BY r.created_dt DESC NULLS LAST
+                LIMIT 1000
+            """)
+        rows = cur.fetchall()
+        return [dict(r) for r in rows]
+    finally:
+        try: cur.close()
+        except: pass
+        conn.close()
+
+def get_blogs():
+    """
+    Simple blog list extracted from blogger.py logic — returns filenames.
+    If you want to fetch from DB create a table and update this function.
+    """
+    # sample static data; you can modify to fetch from DB if you have table
+    sample = [
+        "January_2024_Blog.pdf",
+        "February_2024_Newsletter.pdf",
+        "March_2024_Updates.pdf",
+        "April_2024_Guide.pdf"
+    ]
+    return sample
+
+def get_billing_entries(user_id=None):
+    """
+    Returns billing entries. If user_id provided, filter by user_id.
+    Uses nrm_billing_entries table described.
+    """
+    conn = get_db_connection()
+    try:
+        cur = conn.cursor(DictCursor)
+        if user_id:
+            cur.execute("""
+                SELECT id, user_id, course_id, upi_id, amount, discount, status_id, billing_timestamp
+                FROM nrm_billing_entries
+                WHERE user_id = %s
+                ORDER BY billing_timestamp DESC
+                LIMIT 500
+            """, (user_id,))
+        else:
+            cur.execute("""
+                SELECT id, user_id, course_id, upi_id, amount, discount, status_id, billing_timestamp
+                FROM nrm_billing_entries
+                ORDER BY billing_timestamp DESC
+                LIMIT 500
+            """)
+        rows = cur.fetchall()
+        return [dict(r) for r in rows]
+    finally:
+        try: cur.close()
+        except: pass
+        conn.close()

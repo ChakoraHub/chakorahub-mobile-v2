@@ -1,0 +1,499 @@
+#:kivy 2.0.0
+#:import dp kivy.metrics.dp
+
+WindowManager:
+    AdminPortalScreen:
+
+<AdminPortalScreen>:
+    name: "admin_portal"
+    categories: root.categories
+
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Color:
+                rgba: 0.95, 0.95, 0.98, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # ---------- HEADER (Updated with logo and profile) ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(100)
+            padding: dp(30), dp(10)
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0.56, 0.42, 0.80, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Image:
+                source: "images/logo.png"
+                size_hint_x: None
+                width: dp(80)
+
+            Label:
+                text: "Admin Upload Portal"
+                font_size: "26sp"
+                bold: True
+                color: 1,1,1,1
+
+            AnchorLayout:
+                anchor_x: 'right'
+                size_hint_x: None
+                width: dp(70)
+                ImageButton:
+                    id: profile_button
+                    source: root.profile_pic
+                    size_hint: None, None
+                    size: dp(50), dp(50)
+                    on_release: root.open_profile_dropdown(self)
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1
+                        Ellipse:
+                            pos: self.pos
+                            size: self.size
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: "15dp"
+                spacing: "15dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                Label:
+                    id: flash_msg
+                    text: "Logged in as Admin"
+                    markup: True
+                    color: 0.2, 0.1, 0.5, 1
+                    font_size: "16sp"
+                    bold: True
+                    size_hint_y: None
+                    height: "30dp"
+
+                # Upload sections in 2 columns - ONLY ONE OF EACH TYPE
+                GridLayout:
+                    cols: 2
+                    spacing: "15dp"
+                    padding: "10dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    # Upload PPT
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: "150dp"
+                        padding: "10dp"
+                        spacing: "5dp"
+                        canvas.before:
+                            Color:
+                                rgba: 0.7, 0.7, 0.7, 0.3
+                            RoundedRectangle:
+                                pos: self.x - dp(2), self.y - dp(2)
+                                size: self.width + dp(4), self.height + dp(4)
+                                radius: [12,]
+                            Color:
+                                rgba: 0.95, 0.96, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10,]
+
+                        Label:
+                            text: "Upload PPT"
+                            color: 0.2, 0.2, 0.8, 1
+                            font_size: "16sp"
+                            bold: True
+                            size_hint_y: None
+                            height: "25dp"
+
+                        Spinner:
+                            id: ppt_category
+                            text: "Select Category"
+                            values: root.categories.get('ppt', [])
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 1, 1, 1, 1
+
+                        Button:
+                            text: "Choose File"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.6, 0.8, 1
+                            on_release: app.choose_file("ppt")
+
+                        Button:
+                            text: "Upload"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.8, 0.2, 1
+                            on_release: root.upload_file("ppt", ppt_category.text, app.selected_file_path)
+
+                    # Upload Syllabus
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: "150dp"
+                        padding: "10dp"
+                        spacing: "5dp"
+                        canvas.before:
+                            Color:
+                                rgba: 0.7, 0.7, 0.7, 0.3
+                            RoundedRectangle:
+                                pos: self.x - dp(2), self.y - dp(2)
+                                size: self.width + dp(4), self.height + dp(4)
+                                radius: [12,]
+                            Color:
+                                rgba: 0.95, 0.96, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10,]
+
+                        Label:
+                            text: "Upload Syllabus"
+                            color: 0.2, 0.2, 0.8, 1
+                            font_size: "16sp"
+                            bold: True
+                            size_hint_y: None
+                            height: "25dp"
+
+                        Spinner:
+                            id: syllabus_category
+                            text: "Select Category"
+                            values: root.categories.get('syllabus', [])
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 1, 1, 1, 1
+
+                        Button:
+                            text: "Choose File"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.6, 0.8, 1
+                            on_release: app.choose_file("ppt")
+
+                        Button:
+                            text: "Upload"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.8, 0.2, 1
+                            on_release: root.upload_file("ppt", ppt_category.text, app.selected_file_path)  # Use app.selected_file_path
+
+                    # Upload Interview Questions
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: "150dp"
+                        padding: "10dp"
+                        spacing: "5dp"
+                        canvas.before:
+                            Color:
+                                rgba: 0.7, 0.7, 0.7, 0.3
+                            RoundedRectangle:
+                                pos: self.x - dp(2), self.y - dp(2)
+                                size: self.width + dp(4), self.height + dp(4)
+                                radius: [12,]
+                            Color:
+                                rgba: 0.95, 0.96, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10,]
+
+                        Label:
+                            text: "Upload Interview Questions"
+                            color: 0.2, 0.2, 0.8, 1
+                            font_size: "16sp"
+                            bold: True
+                            size_hint_y: None
+                            height: "25dp"
+
+                        Spinner:
+                            id: interview_category
+                            text: "Select Category"
+                            values: root.categories.get('interview', [])
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 1, 1, 1, 1
+
+                        Button:
+                            text: "Choose File"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.6, 0.8, 1
+                            on_release: app.choose_file("interview")
+
+                        Button:
+                            text: "Upload"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.8, 0.2, 1
+                            on_release: root.upload_file("interview", interview_category.text, app.selected_file_path)
+
+                    # Upload Code
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: "150dp"
+                        padding: "10dp"
+                        spacing: "5dp"
+                        canvas.before:
+                            Color:
+                                rgba: 0.7, 0.7, 0.7, 0.3
+                            RoundedRectangle:
+                                pos: self.x - dp(2), self.y - dp(2)
+                                size: self.width + dp(4), self.height + dp(4)
+                                radius: [12,]
+                            Color:
+                                rgba: 0.95, 0.96, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10,]
+
+                        Label:
+                            text: "Upload Code"
+                            color: 0.2, 0.2, 0.8, 1
+                            font_size: "16sp"
+                            bold: True
+                            size_hint_y: None
+                            height: "25dp"
+
+                        Spinner:
+                            id: code_category
+                            text: "Select Category"
+                            values: root.categories.get('code', [])
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 1, 1, 1, 1
+
+                        Button:
+                            text: "Choose File"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.6, 0.8, 1
+                            on_release: app.choose_file("code")
+
+                        Button:
+                            text: "Upload"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.8, 0.2, 1
+                            on_release: root.upload_file("code", code_category.text, app.selected_file_path)
+
+                    # Upload Practice Tests
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: "150dp"
+                        padding: "10dp"
+                        spacing: "5dp"
+                        canvas.before:
+                            Color:
+                                rgba: 0.7, 0.7, 0.7, 0.3
+                            RoundedRectangle:
+                                pos: self.x - dp(2), self.y - dp(2)
+                                size: self.width + dp(4), self.height + dp(4)
+                                radius: [12,]
+                            Color:
+                                rgba: 0.95, 0.96, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10,]
+
+                        Label:
+                            text: "Upload Practice Tests"
+                            color: 0.2, 0.2, 0.8, 1
+                            font_size: "16sp"
+                            bold: True
+                            size_hint_y: None
+                            height: "25dp"
+
+                        Spinner:
+                            id: practice_test_category
+                            text: "Select Category"
+                            values: root.categories.get('practice_test', [])
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 1, 1, 1, 1
+
+                        Button:
+                            text: "Choose File"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.6, 0.8, 1
+                            on_release: app.choose_file("practice_test")
+
+                        Button:
+                            text: "Upload"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.8, 0.2, 1
+                            on_release: root.upload_file("practice_test", practice_test_category.text, app.selected_file_path)
+
+                    # Upload Blog
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: "150dp"
+                        padding: "10dp"
+                        spacing: "5dp"
+                        canvas.before:
+                            Color:
+                                rgba: 0.7, 0.7, 0.7, 0.3
+                            RoundedRectangle:
+                                pos: self.x - dp(2), self.y - dp(2)
+                                size: self.width + dp(4), self.height + dp(4)
+                                radius: [12,]
+                            Color:
+                                rgba: 0.95, 0.96, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10,]
+
+                        Label:
+                            text: "Upload Blog"
+                            color: 0.2, 0.2, 0.8, 1
+                            font_size: "16sp"
+                            bold: True
+                            size_hint_y: None
+                            height: "25dp"
+
+                        Button:
+                            text: "Choose File"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.6, 0.8, 1
+                            on_release: app.choose_file("blog")
+
+                        Button:
+                            text: "Upload"
+                            size_hint_y: None
+                            height: "35dp"
+                            background_color: 0.2, 0.8, 0.2, 1
+                            on_release: root.upload_file("blog", "Blog", app.selected_file_path)
+
+                # Uploaded Files Section
+                Label:
+                    text: "Manage Uploaded Files"
+                    bold: True
+                    font_size: "18sp"
+                    color: 0.1, 0.1, 0.4, 1
+                    size_hint_y: None
+                    height: "40dp"
+
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: "5dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    RecycleView:
+                        id: file_list
+                        data: []
+                        viewclass: 'FileRow'
+                        size_hint_y: None
+                        height: max(len(root.uploaded_files) * 50, 50) if root.uploaded_files else 50
+
+                        RecycleBoxLayout:
+                            orientation: 'vertical'
+                            default_size: None, dp(40)
+                            default_size_hint: 1, None
+                            size_hint_y: None
+                            height: self.minimum_height
+                            spacing: dp(5)
+
+                # ---------- Back to Resources Button ----------
+                AnchorLayout:
+                    anchor_x: "center"
+                    size_hint_y: None
+                    height: dp(60)
+
+                    Button:
+                        text: "⬅️  Back to Resources"
+                        font_size: '18sp'
+                        bold: True
+                        size_hint: None, None
+                        size: dp(250), dp(50)
+                        background_normal: ''
+                        background_color: 0.0, 0.48, 1, 1
+                        color: 1,1,1,1
+                        on_release: root.go_back_to_resources()
+                        canvas.before:
+                            Color:
+                                rgba: self.background_color
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [12]
+
+        # ---------- FOOTER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            canvas.before:
+                Color:
+                    rgba: 0.56, 0.42, 0.80, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: "ChakoraHub © 2025. All rights reserved."
+                color: 1,1,1,1
+                halign: "center"
+                valign: "middle"
+                text_size: self.size
+
+<FileRow@BoxLayout>:
+    text: ""
+    orientation: "horizontal"
+    size_hint_y: None
+    height: "40dp"
+    padding: "10dp"
+    spacing: "10dp"
+    canvas.before:
+        # Shadow effect
+        Color:
+            rgba: 0.7, 0.7, 0.7, 0.3
+        RoundedRectangle:
+            pos: self.x - dp(1), self.y - dp(1)
+            size: self.width + dp(2), self.height + dp(2)
+            radius: [6,]
+        # Main background
+        Color:
+            rgba: 1, 1, 1, 1
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [5,]
+        # Border
+        Color:
+            rgba: 0.9, 0.9, 0.9, 1
+        Line:
+            rounded_rectangle: [self.x, self.y, self.width, self.height, 5]
+
+    Label:
+        text: root.text
+        color: 0.1, 0.1, 0.4, 1
+        halign: "left"
+        valign: "middle"
+        size_hint_x: 0.8
+        text_size: self.width, None
+
+    Button:
+        text: "Delete"
+        size_hint_x: 0.2
+        background_color: 0.9, 0.2, 0.2, 1
+        on_release: app.root.get_screen("admin_portal").confirm_delete(root.text)

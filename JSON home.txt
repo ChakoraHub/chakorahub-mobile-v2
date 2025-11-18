@@ -1,0 +1,77 @@
+{
+  "test_cases": [
+    {
+      "name": "1️⃣ Register User",
+      "payload": {
+        "action": "register",
+        "data": {
+          "username": "Ravi Kumar",
+          "email": "ravi@example.com",
+          "phone": "9876543210",
+          "password": "Ravi@123",
+          "usertype": "student"
+        }
+      }
+    },
+    {
+      "name": "2️⃣ Login User",
+      "payload": {
+        "action": "login",
+        "data": {
+          "username": "ravi@example.com",
+          "password": "Ravi@123"
+        }
+      }
+    },
+    {
+      "name": "3️⃣ Submit Enquiry",
+      "payload": {
+        "action": "submit_enquiry",
+        "data": {
+          "name": "Ravi Kumar",
+          "email": "ravi@example.com",
+          "phone": "9876543210",
+          "enquiry_text": "I would like to know more about the Full Stack course."
+        }
+      }
+    },
+    {
+      "name": "4️⃣ Submit Feedback",
+      "payload": {
+        "action": "submit_feedback",
+        "data": {
+          "name": "Ravi Kumar",
+          "email": "ravi@example.com",
+          "feedback_message": "Excellent course and professional trainers!"
+        }
+      }
+    },
+    {
+      "name": "5️⃣ Fetch User Details",
+      "payload": {
+        "action": "fetch_user",
+        "data": {
+          "email": "ravi@example.com"
+        }
+      }
+    },
+    {
+      "name": "6️⃣ Fetch Active Batches",
+      "payload": {
+        "action": "fetch_batches"
+      }
+    },
+    {
+      "name": "7️⃣ Fetch Upcoming Batches",
+      "payload": {
+        "action": "fetch_upcoming_batches"
+      }
+    },
+    {
+      "name": "8️⃣ Get Feedback List",
+      "payload": {
+        "action": "get_feedback_list"
+      }
+    }
+  ]
+}

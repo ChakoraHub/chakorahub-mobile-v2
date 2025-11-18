@@ -1,0 +1,254 @@
+#:import dp kivy.metrics.dp
+#:include contactus.kv
+#:include aboutus.kv
+#:include register.kv
+
+ScreenManager:
+    HomeScreen:
+        name: "main"
+
+    RegisterScreen:
+        name: "register"
+
+    ContactUsScreen:
+        name: "contactus"
+
+    AboutUsScreen:
+        name: "aboutus_screen"
+
+<Header@BoxLayout>:
+    size_hint_y: None
+    height: dp(60)
+    padding: dp(10)
+    spacing: dp(20)
+    canvas.before:
+        Color:
+            rgba: 0.56, 0.42, 0.80, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    BoxLayout:
+        size_hint_x: None
+        width: dp(220)
+        spacing: dp(10)
+        SafeImage:
+            source: app.get_s3_image('logo')
+            size_hint_x: None
+            width: dp(60)
+        Label:
+            text: "ChakoraHub"
+            font_size: "22sp"
+            color: 1, 1, 1, 1
+            size_hint_x: None
+            width: dp(150)
+
+    Widget:
+        size_hint_x: 1
+    
+    BoxLayout:
+        size_hint_x: None
+        width: dp(320)
+        spacing: dp(5)
+        orientation: 'horizontal'
+        
+        Button:
+            text: "About Us"
+            background_normal: ""
+            background_color: 0, 0, 0, 0
+            color: 1, 1, 1, 1
+            on_release: app.root.current = "aboutus_screen"
+
+        Button:
+            text: "Contact Us"
+            background_normal: ""
+            background_color: 0, 0, 0, 0
+            color: 1, 1, 1, 1
+            on_release: app.root.current = "contactus"
+
+        Button:
+            text: "Register"
+            background_normal: ""
+            background_color: 0, 0, 0, 0
+            color: 1, 1, 1, 1
+            on_release: app.root.current = "register"
+
+
+<LoginBox@BoxLayout>:
+    orientation: "vertical"
+    size_hint: None, None
+    size: dp(300), dp(300)
+    padding: dp(12)
+    spacing: dp(8)
+    canvas.before:
+        Color:
+            rgba: 0.97, 0.97, 0.98, 1
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [10]
+    Label:
+        text: "Login to ChakoraHub"
+        font_size: "17sp"
+        color: 0.5, 0, 0.8, 1
+    TextInput:
+        id: username_input
+        hint_text: "E-mail or Phone Number"
+        multiline: False
+    TextInput:
+        id: password_input
+        hint_text: "Password"
+        password: True
+        multiline: False
+    Button:
+        text: "Login"
+        on_release: app.login_user(username_input.text, password_input.text, message_label)
+    Label:
+        id: message_label
+        text: ""
+        markup: True
+
+
+<BatchBox@BoxLayout>:
+    orientation: "vertical"
+    size_hint: None, None
+    size: dp(240), dp(160)
+    padding: dp(8)
+    spacing: dp(4)
+    Label:
+        id: heading
+        text: root.heading
+        color: 0, 0.5, 1, 1
+        bold: True
+    RecycleView:
+        id: rv
+        viewclass: "Label"
+        RecycleBoxLayout:
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: "vertical"
+
+
+<ServiceItem@BoxLayout>:
+    orientation: "vertical"
+    padding: dp(15)
+    spacing: dp(5)
+    Label:
+        text: root.title
+        font_size: "18sp"
+        color: 0, 0.5, 1, 1
+        bold: True
+    Label:
+        text: root.desc
+        font_size: "14sp"
+        color: 0.2, 0.2, 0.2, 1
+        text_size: self.width, None
+        halign: "center"
+
+
+<FeedbackItem@BoxLayout>:
+    orientation: "vertical"
+    size_hint_y: None
+    padding: dp(10)
+    spacing: dp(5)
+    Label:
+        text: '"' + root.msg + '"'
+        italic: True
+        font_size: "14sp"
+    Label:
+        text: "— " + root.name
+        font_size: "12sp"
+        color: 0.2, 0.2, 0.2, 1
+
+
+<HomeScreen>:
+    current_batches: current_batches
+    upcoming_batches: upcoming_batches
+    feedback_rv: feedback_rv
+    login_box: login_box
+
+    BoxLayout:
+        orientation: "vertical"
+        Header:
+
+        ScrollView:
+            BoxLayout:
+                orientation: "vertical"
+                padding: dp(15)
+                spacing: dp(20)
+                size_hint_y: None
+                height: self.minimum_height
+
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(360)
+                    spacing: dp(20)
+                    padding: [dp(40), 0]
+
+                    SafeAsyncImage:
+                        source: app.get_s3_image('theme')
+                        size_hint_x: 0.68
+
+                    LoginBox:
+                        id: login_box
+                        size_hint_x: None
+                        width: dp(300)
+                        pos_hint: {"center_y": 0.5}
+
+                AnchorLayout:
+                    size_hint_y: None
+                    height: dp(190)
+                    anchor_x: 'center'
+                    BoxLayout:
+                        orientation: "horizontal"
+                        spacing: dp(25)
+                        BatchBox:
+                            id: current_batches
+                            heading: "Current Batches"
+                        BatchBox:
+                            id: upcoming_batches
+                            heading: "Upcoming Batches"
+
+                Label:
+                    text: "Our Services"
+                    font_size: "20sp"
+                    color: 0.5, 0, 0.8, 1
+
+                ServiceItem:
+                    title: "💡 IT Training"
+                    desc: "Training in Informatica, Python, Data Engineering."
+
+                ServiceItem:
+                    title: "🚀 Quick Launch Website"
+                    desc: "We build responsive, SEO-friendly websites."
+
+                Label:
+                    text: "💬 Student Feedback"
+                    font_size: "20sp"
+                    color: 0, 0.5, 1, 1
+
+                AnchorLayout:
+                    size_hint_y: None
+                    height: dp(160)
+                    RecycleView:
+                        id: feedback_rv
+                        viewclass: "FeedbackItem"
+                        RecycleBoxLayout:
+                            default_size_hint: 1, None
+                            size_hint_y: None
+                            height: self.minimum_height
+                            orientation: "vertical"
+
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(40)
+                    canvas.before:
+                        Color:
+                            rgba: 0.56, 0.42, 0.80, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    Label:
+                        text: "© 2025 ChakoraHub. All rights reserved."
+                        color: 1, 1, 1, 1

@@ -1,0 +1,542 @@
+[INFO   ] [Logger      ] Record log in /Users/subhash/.kivy/logs/kivy_25-10-30_6.txt
+[INFO   ] [Kivy        ] v2.3.1
+[INFO   ] [Kivy        ] Installed at "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/__init__.py"
+[INFO   ] [Python      ] v3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]
+[INFO   ] [Python      ] Interpreter at "/usr/local/bin/python3"
+[INFO   ] [Logger      ] Purge log fired. Processing...
+[INFO   ] [Logger      ] Purge finished!
+[INFO   ] [Factory     ] 195 symbols loaded
+[INFO   ] [Image       ] Providers: img_tex, img_imageio, img_dds, img_sdl2, img_pil (img_ffpyplayer ignored)
+[INFO   ] [Window      ] Provider: sdl2
+[INFO   ] [GL          ] Using the "OpenGL ES 2" graphics system
+[INFO   ] [GL          ] Backend used <sdl2>
+[INFO   ] [GL          ] OpenGL version <b'2.1 Metal - 90.5'>
+[INFO   ] [GL          ] OpenGL vendor <b'Apple'>
+[INFO   ] [GL          ] OpenGL renderer <b'Apple M3'>
+[INFO   ] [GL          ] OpenGL parsed version: 2, 1
+[INFO   ] [GL          ] Shading version <b'1.20'>
+[INFO   ] [GL          ] Texture max size <16384>
+[INFO   ] [GL          ] Texture max units <16>
+[INFO   ] [Window      ] auto add sdl2 input provider
+[INFO   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[INFO   ] [Text        ] Provider: sdl2
+[DEBUG  ] Injecting ssl_wrap_socket_with_ocsp
+[DEBUG  ] Failed to import pyarrow or pandas. Cannot use pandas fetch API. Please install snowflake-connector-python with the `pandas` extra to use these features.
+⚠️ Emoji font not found, using default font
+⚠️ Emoji font not loaded
+🚀 Starting ChakoraHub App...
+✅ Loaded resources.kv
+✅ Loaded enquiry.kv
+✅ Loaded register.kv
+✅ Loaded adminregister.kv
+✅ Loaded feedback.kv
+✅ Loaded profile.kv
+✅ Loaded demovideos.kv
+✅ Loaded blogger.kv
+✅ Loaded student_report.kv
+[WARNING] [Factory     ] Ignored class "DropdownHoverButton" re-declaration. Current -  module: None, cls: <class 'widgets.DropdownHoverButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: HoverButton, filename: /Users/subhash/Desktop/mobile app test/settings.kv.
+[WARNING] [Factory     ] Ignored class "ImageButton" re-declaration. Current -  module: None, cls: <class 'widgets.ImageButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: ButtonBehavior+Image, filename: /Users/subhash/Desktop/mobile app test/settings.kv.
+✅ Loaded settings.kv
+[ERROR  ] [Image       ] Not found <images/logo.png>
+✅ Loaded contactus.kv
+[WARNING] [Factory     ] Ignored class "DropdownHoverButton" re-declaration. Current -  module: None, cls: <class 'widgets.DropdownHoverButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: HoverButton, filename: /Users/subhash/Desktop/mobile app test/calender.kv.
+[WARNING] [Factory     ] Ignored class "ImageButton" re-declaration. Current -  module: None, cls: <class 'widgets.ImageButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: ButtonBehavior+Image, filename: /Users/subhash/Desktop/mobile app test/calender.kv.
+✅ Loaded calender.kv
+✅ Loaded aboutus.kv
+🔄 AdminPortalScreen entered - loading data...
+[INFO   ] [Snowflake Connector for Python Version] 3.17.3, Python Version: 3.13.2, Platform: macOS-26.0-arm64-arm-64bit-Mach-O
+[DEBUG  ] connect
+[DEBUG  ] __config
+[INFO   ] Connecting to GLOBAL Snowflake domain
+[DEBUG  ] This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[DEBUG  ] [use_numpy   ] False
+[DEBUG  ] [REST API object was created] gpguymt-ta88699.snowflakecomputing.com:443
+[DEBUG  ] authenticate
+[DEBUG  ] [IMDS ENDPOINT] http://169.254.169.254/
+[DEBUG  ] Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] Changing event name from before-call.apigateway to before-call.api-gateway
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] [Starting new HTTP connection (1)] metadata.google.internal:80
+[DEBUG  ] [Starting new HTTP connection (1)] metadata.google.internal:80
+[DEBUG  ] Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+[DEBUG  ] Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+[DEBUG  ] Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+[DEBUG  ] Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+[DEBUG  ] Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+[DEBUG  ] Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+[DEBUG  ] Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+[DEBUG  ] Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+[DEBUG  ] Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+[DEBUG  ] [IMDS ENDPOINT] http://169.254.169.254/
+[DEBUG  ] [Looking for credentials via] env
+[DEBUG  ] [Looking for credentials via] assume-role
+[DEBUG  ] [Looking for credentials via] assume-role-with-web-identity
+[DEBUG  ] [Looking for credentials via] sso
+[DEBUG  ] [Looking for credentials via] shared-credentials-file
+[DEBUG  ] [Looking for credentials via] custom-process
+[DEBUG  ] [Looking for credentials via] config-file
+[DEBUG  ] [Looking for credentials via] ec2-credentials-file
+[DEBUG  ] [Looking for credentials via] boto-config
+[DEBUG  ] [Looking for credentials via] container-role
+[DEBUG  ] [Looking for credentials via] iam-role
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] [Caught retryable HTTP exception while making metadata service request to http]//169.254.169.254/latest/api/token: Connect timeout on endpoint URL: "http://169.254.169.254/latest/api/token"
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/httpsession.py", line 465, in send
+    urllib_response = conn.urlopen(
+        method=request.method,
+    ...<7 lines>...
+        chunked=self._chunked(request.headers),
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/retry.py", line 449, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 96, in request
+    rval = super().request(method, url, body, headers, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 223, in send
+    return super().send(str)
+           ~~~~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+    ...<2 lines>...
+    ) from e
+urllib3.exceptions.ConnectTimeoutError: (<botocore.awsrequest.AWSHTTPConnection object at 0x11fdbe7b0>, 'Connection to 169.254.169.254 timed out. (connect timeout=0.2)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/utils.py", line 480, in _fetch_metadata_token
+    response = self._session.send(request.prepare())
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/httpsession.py", line 500, in send
+    raise ConnectTimeoutError(endpoint_url=request.url, error=e)
+botocore.exceptions.ConnectTimeoutError: Connect timeout on endpoint URL: "http://169.254.169.254/latest/api/token"
+[DEBUG  ] [Starting new HTTP connection (2)] 169.254.169.254:80
+[DEBUG  ] [Caught retryable HTTP exception while making metadata service request to http]//169.254.169.254//latest/dynamic/instance-identity/document: Connect timeout on endpoint URL: "http://169.254.169.254//latest/dynamic/instance-identity/document"
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/httpsession.py", line 465, in send
+    urllib_response = conn.urlopen(
+        method=request.method,
+    ...<7 lines>...
+        chunked=self._chunked(request.headers),
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/retry.py", line 449, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 96, in request
+    rval = super().request(method, url, body, headers, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 223, in send
+    return super().send(str)
+           ~~~~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+    ...<2 lines>...
+    ) from e
+urllib3.exceptions.ConnectTimeoutError: (<botocore.awsrequest.AWSHTTPConnection object at 0x11fdc5f90>, 'Connection to 169.254.169.254 timed out. (connect timeout=0.2)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/utils.py", line 535, in _get_request
+    response = self._session.send(request.prepare())
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/httpsession.py", line 500, in send
+    raise ConnectTimeoutError(endpoint_url=request.url, error=e)
+botocore.exceptions.ConnectTimeoutError: Connect timeout on endpoint URL: "http://169.254.169.254//latest/dynamic/instance-identity/document"
+[DEBUG  ] [Caught retryable HTTP exception while making metadata service request to http]//169.254.169.254/latest/api/token: Connect timeout on endpoint URL: "http://169.254.169.254/latest/api/token"
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/httpsession.py", line 465, in send
+    urllib_response = conn.urlopen(
+        method=request.method,
+    ...<7 lines>...
+        chunked=self._chunked(request.headers),
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/retry.py", line 449, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 96, in request
+    rval = super().request(method, url, body, headers, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 223, in send
+    return super().send(str)
+           ~~~~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+    ...<2 lines>...
+    ) from e
+urllib3.exceptions.ConnectTimeoutError: (<botocore.awsrequest.AWSHTTPConnection object at 0x11fdc7b10>, 'Connection to 169.254.169.254 timed out. (connect timeout=1)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/utils.py", line 480, in _fetch_metadata_token
+    response = self._session.send(request.prepare())
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/httpsession.py", line 500, in send
+    raise ConnectTimeoutError(endpoint_url=request.url, error=e)
+botocore.exceptions.ConnectTimeoutError: Connect timeout on endpoint URL: "http://169.254.169.254/latest/api/token"
+[DEBUG  ] [Starting new HTTP connection (2)] 169.254.169.254:80
+[DEBUG  ] [Caught retryable HTTP exception while making metadata service request to http]//169.254.169.254/latest/meta-data/iam/security-credentials/: Connect timeout on endpoint URL: "http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/httpsession.py", line 465, in send
+    urllib_response = conn.urlopen(
+        method=request.method,
+    ...<7 lines>...
+        chunked=self._chunked(request.headers),
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/retry.py", line 449, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 96, in request
+    rval = super().request(method, url, body, headers, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/awsrequest.py", line 223, in send
+    return super().send(str)
+           ~~~~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+    ...<2 lines>...
+    ) from e
+urllib3.exceptions.ConnectTimeoutError: (<botocore.awsrequest.AWSHTTPConnection object at 0x11fdc42d0>, 'Connection to 169.254.169.254 timed out. (connect timeout=1)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/utils.py", line 535, in _get_request
+    response = self._session.send(request.prepare())
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/httpsession.py", line 500, in send
+    raise ConnectTimeoutError(endpoint_url=request.url, error=e)
+botocore.exceptions.ConnectTimeoutError: Connect timeout on endpoint URL: "http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+[DEBUG  ] Max number of attempts exceeded (1) when attempting to retrieve data from metadata service.
+[DEBUG  ] [Loading JSON file] /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/data/endpoints.json
+[DEBUG  ] [Loading JSON file] /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/data/sdk-default-configuration.json
+[DEBUG  ] [Event choose-service-name] calling handler <function handle_service_name_alias at 0x11e9049a0>
+[DEBUG  ] [Loading JSON file] /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/data/sts/2011-06-15/service-2.json.gz
+[DEBUG  ] [Loading JSON file] /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/data/sts/2011-06-15/endpoint-rule-set-1.json.gz
+[DEBUG  ] [Loading JSON file] /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/data/partitions.json
+[DEBUG  ] [Event creating-client-class.sts] calling handler <function add_generate_presigned_url at 0x11e88dd00>
+[DEBUG  ] [Looking for endpoint for sts via] environment_service
+[DEBUG  ] [Looking for endpoint for sts via] environment_global
+[DEBUG  ] [Looking for endpoint for sts via] config_service
+[DEBUG  ] [Looking for endpoint for sts via] config_global
+[DEBUG  ] No configured endpoint found.
+[DEBUG  ] Setting sts timeout as (0.2, 0.2)
+[DEBUG  ] [Loading JSON file] /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/botocore/data/_retry.json
+[DEBUG  ] [Registering retry handlers for service] sts
+[DEBUG  ] [Event before-parameter-build.sts.GetCallerIdentity] calling handler <function generate_idempotent_uuid at 0x11e906a20>
+[DEBUG  ] [Event before-parameter-build.sts.GetCallerIdentity] calling handler <function _handle_request_validation_mode_member at 0x11e925580>
+[DEBUG  ] [Calling endpoint provider with parameters] {'Region': 'aws-global', 'UseDualStack': False, 'UseFIPS': False, 'UseGlobalEndpoint': False}
+[DEBUG  ] [Endpoint provider result] https://sts.amazonaws.com
+[DEBUG  ] [Selecting from endpoint provider's list of auth schemes] "sigv4". User selected auth scheme is: "None"
+[DEBUG  ] [Selected auth type "v4" as "v4" with signing context params] {'region': 'us-east-1', 'signing_name': 'sts'}
+[DEBUG  ] [Event before-call.sts.GetCallerIdentity] calling handler <function add_recursion_detection_header at 0x11e905800>
+[DEBUG  ] [Event before-call.sts.GetCallerIdentity] calling handler <function inject_api_version_header_if_needed at 0x11e924540>
+[DEBUG  ] [Making request for OperationModel(name=GetCallerIdentity) with params] {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': 'Boto3/1.40.29 md/Botocore#1.40.29 ua/2.1 os/macos#25.0.0 md/arch#arm64 lang/python#3.13.2 md/pyimpl#CPython m/D,b,Z cfg/retry-mode#legacy Botocore/1.40.29'}, 'body': {'Action': 'GetCallerIdentity', 'Version': '2011-06-15'}, 'url': 'https://sts.amazonaws.com/', 'context': {'client_region': 'aws-global', 'client_config': <botocore.config.Config object at 0x1205787d0>, 'has_streaming_input': False, 'auth_type': 'v4', 'unsigned_payload': None, 'auth_options': ['aws.auth#sigv4'], 'signing': {'region': 'us-east-1', 'signing_name': 'sts'}, 'endpoint_properties': {'authSchemes': [{'name': 'sigv4', 'signingName': 'sts', 'signingRegion': 'us-east-1'}]}}}
+[DEBUG  ] [Event request-created.sts.GetCallerIdentity] calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x11fe06f90>>
+[DEBUG  ] [Event choose-signer.sts.GetCallerIdentity] calling handler <function set_operation_specific_signer at 0x11e9067a0>
+[DEBUG  ] account=gpguymt-ta88699, user=ChakoraHub, database=VSRSUBHASH$CHAKORA_DB, schema=CHAKORA, warehouse=COMPUTE_WH, role=None, request_id=25060ed5-a33a-4a09-89bc-d7ee00611cc8
+[DEBUG  ] [body['data']] {'CLIENT_APP_ID': 'PythonConnector', 'CLIENT_APP_VERSION': '3.17.3', 'SVN_REVISION': None, 'ACCOUNT_NAME': 'gpguymt-ta88699', 'LOGIN_NAME': 'ChakoraHub', 'CLIENT_ENVIRONMENT': {'APPLICATION': 'PythonConnector', 'APPLICATION_PATH': '/Users/subhash/Desktop/mobile app test/main_app.py', 'OS': 'Darwin', 'OS_VERSION': 'macOS-26.0-arm64-arm-64bit-Mach-O', 'PYTHON_VERSION': '3.13.2', 'PYTHON_RUNTIME': 'CPython', 'PYTHON_COMPILER': 'Clang 15.0.0 (clang-1500.3.9.4)', 'OCSP_MODE': 'FAIL_OPEN', 'TRACING': 0, 'LOGIN_TIMEOUT': None, 'NETWORK_TIMEOUT': None, 'SOCKET_TIMEOUT': None, 'PLATFORM': ['is_azure_vm_timeout', 'has_azure_managed_identity_timeout']}, 'PASSWORD': '******', 'SESSION_PARAMETERS': {'CLIENT_PREFETCH_THREADS': 4}}
+[DEBUG  ] [Converted retries value] 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+[DEBUG  ] [remaining request timeout] N/A ms, retry cnt: 1
+[DEBUG  ] [Request guid] 55be850f-9c05-4d7a-a94b-a55d4a9d8b60
+[DEBUG  ] [socket timeout] 60
+[DEBUG  ] [Starting new HTTPS connection (1)] gpguymt-ta88699.snowflakecomputing.com:443
+[DEBUG  ] [OCSP Mode   ] FAIL_OPEN, OCSP response cache file name: None
+[DEBUG  ] [cache directory] /Users/subhash/Library/Caches/Snowflake
+[DEBUG  ] [ocsp_response_cache_uri] file:///Users/subhash/Library/Caches/Snowflake/ocsp_response_cache.json
+[DEBUG  ] [OCSP_VALIDATION_CACHE size] 419
+[DEBUG  ] [OCSP response cache server is enabled] http://ocsp.snowflakecomputing.com/ocsp_response_cache.json
+[DEBUG  ] [OCSP dynamic cache server RETRY URL] None
+[DEBUG  ] [validating certificate] gpguymt-ta88699.snowflakecomputing.com
+[DEBUG  ] [# of certificates] 3
+[DEBUG  ] [reading certificate bundle] /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/certifi/cacert.pem
+[DEBUG  ] [subject     ] OrderedDict({'country_name': 'US', 'state_or_province_name': 'Montana', 'locality_name': 'Bozeman', 'organization_name': 'Snowflake Inc.', 'common_name': '*.central-india.azure.snowflakecomputing.com'}), issuer: OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'})
+[DEBUG  ] [subject     ] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'}), issuer: OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'organizational_unit_name': 'www.digicert.com', 'common_name': 'DigiCert Global Root G2'})
+[DEBUG  ] [A trusted root certificate found] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'}), stopping chain traversal here
+[DEBUG  ] [not found issuer_der] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'organizational_unit_name': 'www.digicert.com', 'common_name': 'DigiCert Global Root G2'})
+[DEBUG  ] [hit cache for subject] OrderedDict({'country_name': 'US', 'state_or_province_name': 'Montana', 'locality_name': 'Bozeman', 'organization_name': 'Snowflake Inc.', 'common_name': '*.central-india.azure.snowflakecomputing.com'})
+[DEBUG  ] [hit cache for subject] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'})
+[DEBUG  ] ok
+[DEBUG  ] [https       ]//gpguymt-ta88699.snowflakecomputing.com:443 "POST /session/v1/login-request?request_id=25060ed5-a33a-4a09-89bc-d7ee00611cc8&databaseName=VSRSUBHASH%24CHAKORA_DB&schemaName=CHAKORA&warehouse=COMPUTE_WH&request_guid=55be850f-9c05-4d7a-a94b-a55d4a9d8b60 HTTP/1.1" 200 402
+[DEBUG  ] SUCCESS
+[DEBUG  ] ret[code] = 394508, after post request
+[DEBUG  ] completed authentication
+❌ DB Connection Error: 250001 (08001): Failed to connect to DB: gpguymt-ta88699.snowflakecomputing.com:443. Failed to authenticate: MFA with TOTP is required. To authenticate, provide both your password and a current TOTP passcode.
+🔄 Refreshing category spinners...
+[ERROR  ] [Image       ] Not found <images/profile.jpg>
+[ERROR  ] [Image       ] Not found <images/logo.png>
+✅ Loaded upload.kv
+✅ Loaded offers.kv
+[ERROR  ] [Image       ] Not found <images/default.png>
+[ERROR  ] [Image       ] Not found <images/logo.jpg>
+ Traceback (most recent call last):
+   File "/Users/subhash/Desktop/mobile app test/main_app.py", line 315, in <module>
+     ChakoraHubApp().run()
+     ~~~~~~~~~~~~~~~~~~~^^
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/app.py", line 955, in run
+     self._run_prepare()
+     ~~~~~~~~~~~~~~~~~^^
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/app.py", line 925, in _run_prepare
+     root = self.build()
+   File "/Users/subhash/Desktop/mobile app test/main_app.py", line 99, in build
+     self.root = Builder.load_file("home.kv")
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/lang/builder.py", line 310, in load_file
+     return self.load_string(data, **kwargs)
+            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/lang/builder.py", line 412, in load_string
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         widget, parser.root, parser.root,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/lang/builder.py", line 665, in _apply_rule
+     child.apply_class_lang_rules(
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+         root=rctx['ids']['root'], rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/uix/widget.py", line 470, in apply_class_lang_rules
+     Builder.apply(
+     ~~~~~~~~~~~~~^
+         self, ignored_consts=ignored_consts,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/lang/builder.py", line 545, in apply
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         widget, rule, rule, ignored_consts=ignored_consts,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/lang/builder.py", line 667, in _apply_rule
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         child, crule, rootrule, rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/lang/builder.py", line 667, in _apply_rule
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         child, crule, rootrule, rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/lang/builder.py", line 667, in _apply_rule
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         child, crule, rootrule, rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   [Previous line repeated 1 more time]
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/lang/builder.py", line 625, in _apply_rule
+     cls = Factory_get(cname)
+   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/kivy/factory.py", line 147, in __getattr__
+     raise FactoryException('Unknown class <%s>' % name)
+ kivy.factory.FactoryException: Unknown class <SafeAsyncImage>

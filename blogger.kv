@@ -1,0 +1,213 @@
+#:kivy 2.1.0
+#:import os os
+#:import dp kivy.metrics.dp
+#:import sp kivy.metrics.sp
+
+<BlogRow>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: dp(44)
+    spacing: dp(10)
+    padding: dp(5)
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        text: root.file_name
+        color: 0, 0, 0, 1
+        halign: 'left'
+        valign: 'middle'
+        text_size: self.width, None
+        size_hint_x: 0.7
+    Button:
+        text: "Open"
+        size_hint_x: None
+        width: dp(80)
+        background_normal: ''
+        background_color: 0.3, 0.6, 0.9, 1
+        color: 1, 1, 1, 1
+        on_release: app.open_blog(root.file_name)
+    Button:
+        text: "Delete"
+        size_hint_x: None
+        width: dp(80)
+        background_normal: ''
+        background_color: 0.9, 0.3, 0.3, 1
+        color: 1, 1, 1, 1
+        on_release: app.delete_blog(root.file_name)
+
+<BloggerRoot>:
+    name: "blogger_screen"
+
+    BoxLayout:
+        orientation: "vertical"
+
+        # ---------- HEADER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(100)
+            padding: dp(20), dp(10)
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Image:
+                source: "images/logo.png"
+                size_hint_x: None
+                width: dp(70)
+
+            Label:
+                text: "ChakoraHub - Blog Manager"
+                font_size: sp(22)
+                bold: True
+                color: 1,1,1,1
+
+            AnchorLayout:
+                anchor_x: 'right'
+                size_hint_x: None
+                width: dp(70)
+                ImageButton:
+                    id: profile_button
+                    source: "images/profile.jpg"
+                    size_hint: None, None
+                    size: dp(50), dp(50)
+                    on_release: root.open_profile_menu(self)
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1
+                        Ellipse:
+                            pos: self.pos
+                            size: self.size
+
+        # ---------- BODY ----------
+        BoxLayout:
+            orientation: "horizontal"
+            padding: dp(10)
+            spacing: dp(15)
+
+            # Left Panel - Months
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_x: 0.3
+                spacing: dp(10)
+
+                Label:
+                    text: "Filter by Month"
+                    size_hint_y: None
+                    height: dp(30)
+                    color: 0, 0, 0, 1
+                    font_size: sp(16)
+                    bold: True
+                    halign: 'center'
+
+                ScrollView:
+                    scroll_type: ['bars', 'content']
+                    bar_width: dp(10)
+                    GridLayout:
+                        id: months_box
+                        cols: 1
+                        size_hint_y: None
+                        height: self.minimum_height
+                        spacing: dp(5)
+                        padding: dp(5)
+
+            # Right Panel - Blogs
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_x: 0.7
+                spacing: dp(10)
+
+                Label:
+                    text: "Uploaded Blogs" + (" - " + root.selected_month if root.selected_month else "")
+                    size_hint_y: None
+                    height: dp(30)
+                    color: 0, 0, 0, 1
+                    font_size: sp(16)
+                    bold: True
+                    halign: 'center'
+
+                ScrollView:
+                    scroll_type: ['bars', 'content']
+                    bar_width: dp(10)
+                    RecycleView:
+                        id: blog_rv
+                        viewclass: 'BlogRow'
+                        data: root.rv_data
+                        RecycleBoxLayout:
+                            default_size: None, dp(50)
+                            default_size_hint: 1, None
+                            size_hint_y: None
+                            height: self.minimum_height
+                            orientation: 'vertical'
+                            spacing: dp(5)
+
+        # ---------- ACTION BUTTONS ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(70)
+            spacing: dp(20)
+            padding: dp(20)
+
+            Widget:
+
+            Button:
+                text: "📤 Upload New Blog"
+                size_hint: None, None
+                size: dp(220), dp(50)
+                background_normal: ''
+                background_color: 0.0, 0.7, 0.0, 1
+                color: 1, 1, 1, 1
+                font_size: sp(16)
+                bold: True
+                on_release: app.upload_blog()
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [10]
+
+            Button:
+                text: "⬅ Back to Resources"
+                size_hint: None, None
+                size: dp(220), dp(50)
+                background_normal: ''
+                background_color: 0.0, 0.48, 1, 1
+                color: 1, 1, 1, 1
+                font_size: sp(16)
+                bold: True
+                on_release: root.on_back_to_resources()
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [10]
+
+            Widget:
+
+        # ---------- FOOTER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: "ChakoraHub © 2025. All rights reserved."
+                color: 1,1,1,1
+                halign: "center"
+                valign: "middle"
+                text_size: self.size

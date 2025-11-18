@@ -1,0 +1,165 @@
+#:import dp kivy.metrics.dp
+
+<BillingScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 0
+        padding: 0
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   # White background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # Header
+        BoxLayout:
+            size_hint_y: None
+            height: dp(60)
+            padding: dp(10), 0
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.3, 0.6, 1   # Blue header
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            # Logo left
+            Image:
+                source: "images/logo.png"
+                size_hint: None, None
+                size: "60dp", "60dp"
+                allow_stretch: True
+                keep_ratio: True
+
+            Widget:   # Spacer
+
+            # Profile right
+            Image:
+                id: profile_pic
+                source: "images/profile.jpg"
+                size_hint: None, None
+                size: "44dp", "44dp"
+                allow_stretch: True
+                keep_ratio: True
+                on_touch_down:
+                    if self.collide_point(*args[1].pos): root.show_profile_menu()
+
+        # Flash message box
+        BoxLayout:
+            id: flash_box
+            size_hint_y: None
+            height: dp(40)
+            opacity: 0
+            padding: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [8]
+            Label:
+                id: flash
+                text: ""
+                markup: True
+                color: 0,0,0,1
+
+        # Main body with centered form + heading + back button
+        BoxLayout:
+            orientation: "vertical"
+            spacing: dp(20)
+            padding: dp(20)
+
+            # Spacer to push form to vertical center
+            Widget:
+
+            # Heading above box
+            Label:
+                text: "Billing Module"
+                size_hint_y: None
+                height: dp(40)
+                font_size: dp(20)
+                bold: True
+                color: 0, 0, 0, 1
+                halign: "center"
+                valign: "middle"
+                text_size: self.size
+                pos_hint: {"center_x": 0.5}
+
+            # Form Box Centered
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                size: dp(340), dp(340)   # form box size
+                pos_hint: {"center_x": 0.5}
+                padding: dp(15)
+                spacing: dp(12)
+                canvas.before:
+                    Color:
+                        rgba: 0.96, 0.97, 1, 1   # slightly off-white box
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [12]
+
+                # UPI Transaction ID
+                TextInput:
+                    id: upi
+                    hint_text: "UPI Transaction ID"
+                    multiline: False
+                    size_hint_y: None
+                    height: dp(40)
+
+                # Mobile Number
+                TextInput:
+                    id: phone
+                    hint_text: "Mobile Number"
+                    multiline: False
+                    size_hint_y: None
+                    height: dp(40)
+
+                # Course Selection
+                Spinner:
+                    id: course_name
+                    text: "-- Select Course --"
+                    values: ["Python Programming", "Data Science", "Web Development", "Cloud Computing"]
+                    size_hint_y: None
+                    height: dp(40)
+                    on_text: root.show_fee(self.text)
+
+                # Show Course Fee
+                Label:
+                    text: root.course_fee
+                    color: 0,0,0,1
+                    size_hint_y: None
+                    height: dp(30)
+
+                # Current Payment
+                TextInput:
+                    id: payment
+                    hint_text: "Current Payment"
+                    multiline: False
+                    size_hint_y: None
+                    height: dp(40)
+
+                # Submit Button
+                Button:
+                    text: "Submit Entry"
+                    size_hint_y: None
+                    height: dp(45)
+                    background_color: 0.1, 0.5, 0.2, 1
+                    on_release: root.submit_entry()
+
+            # Back Button (OUTSIDE the box)
+            Button:
+                text: "Back to Resources"
+                size_hint: None, None
+                size: dp(180), dp(40)
+                pos_hint: {"center_x": 0.5}
+                background_color: 0.25, 0.32, 0.71, 1
+                on_release: root.go_back()
+
+            # Spacer bottom
+            Widget:

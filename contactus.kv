@@ -1,0 +1,153 @@
+#:import dp kivy.metrics.dp
+
+<ContactUsScreen>:
+    name: "contactus"
+
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Rectangle:
+                source: "images/background.jpg"
+                pos: self.pos
+                size: self.size
+
+        # ---------- HEADER (Same as Register Screen) ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(100)
+            padding: dp(30), dp(10)
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Image:
+                source: "images/logo.png"
+                size_hint_x: None
+                width: dp(80)
+
+            Label:
+                text: "Contact Us"
+                font_size: "26sp"
+                bold: True
+                color: 1,1,1,1
+
+            # Empty widget to balance the layout
+            Widget:
+                size_hint_x: None
+                width: dp(70)
+
+        # ---------- CONTENT WITH CENTERED TEXT AND TRANSPARENT BOX ----------
+        FloatLayout:
+            # White background
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1   # pure white
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            # Transparent Contact Card (transparent version of header/footer color)
+            AnchorLayout:
+                anchor_x: "center"
+                anchor_y: "center"
+                size_hint: 0.75, 0.45
+                pos_hint: {"center_x": 0.5, "center_y": 0.55}
+                
+                BoxLayout:
+                    orientation: "vertical"
+                    size_hint: 0.9, 0.9
+                    padding: dp(20)
+                    spacing: dp(12)
+                    canvas.before:
+                        Color:
+                            rgba: 0.56, 0.42, 0.80, 0.8   # Transparent version of header color
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [15]
+
+                    Label:
+                        text: "Contact Us"
+                        font_size: "28sp"
+                        bold: True
+                        color: 1, 1, 1, 1   # White text
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    Label:
+                        text: "Feel free to email us:"
+                        font_size: "16sp"
+                        color: 1, 1, 1, 1   # White text
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    # Clickable email button
+                    Button:
+                        text: "[b][color=00BFFF]support@chakorahub.com[/color][/b]"
+                        markup: True
+                        font_size: "18sp"
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        background_color: 0, 0, 0, 0  # Transparent background
+                        background_normal: ''
+                        color: 1, 1, 1, 1
+                        on_release: root.open_email()
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0, 0, 0
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+
+                    Label:
+                        text: "Or call us at: [b]+91 98765 43210[/b]"
+                        markup: True
+                        font_size: "16sp"
+                        color: 1, 1, 1, 1   # White text
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    Label:
+                        text: "Address: [b]123 ChakoraHub Street, Hyderabad, India[/b]"
+                        markup: True
+                        font_size: "16sp"
+                        color: 1, 1, 1, 1   # White text
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+            # Home Button (Updated color to match register screen)
+            Button:
+                text: "Home"
+                size_hint: 0.2, 0.08
+                pos_hint: {"center_x": 0.5, "y": 0.05}
+                background_color: 0.0, 0.48, 1, 1  # Same blue as register screen
+                color: 1, 1, 1, 1
+                font_size: "16sp"
+                bold: True
+                on_release: root.go_home()
+
+        # ---------- FOOTER (Same as Register Screen) ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: "ChakoraHub © 2025. All rights reserved."
+                color: 1,1,1,1
+                halign: "center"
+                valign: "middle"
+                text_size: self.size

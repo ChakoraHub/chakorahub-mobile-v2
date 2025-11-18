@@ -1,0 +1,300 @@
+import json
+import pymysql
+import smtplib
+from email.mime.text import MIMEText
+import traceback
+import os
+
+# ---------- DB CONFIG ----------
+DB_CONFIG = {
+    "host": os.getenv("DB_HOST", "your-db-endpoint.amazonaws.com"),
+    "user": os.getenv("DB_USER", "admin"),
+    "password": os.getenv("DB_PASSWORD", "yourpassword"),
+    "database": os.getenv("DB_NAME", "chakora"),
+    "port": int(os.getenv("DB_PORT", 3306))
+}
+
+# ---------- EMAIL CONFIG ----------
+EMAIL_SENDER = "vsrsubhash@gmail.com"
+EMAIL_PASS = "ABC@108"  # ⚠ Use AWS Secrets Manager for production
+EMAIL_RECEIVER = "vsrsubhash@gmail.com"
+
+# ---------- DB CONNECTION ----------
+def get_connection():
+    try:
+        return pymysql.connect(**DB_CONFIG)
+    except Exception as e:
+        print("❌ Database connection failed:", e)
+        return None
+
+# ---------- EMAIL NOTIFICATION ----------
+def send_enquiry_email(name, email, phone, enquiry_text):
+    subject = f"New Enquiry from {name}"
+    body = f"""
+You have received a new enquiry.
+
+Name: {name}
+Email: {email}
+Phone: {phone}
+
+Message:
+{enquiry_text}
+"""
+    msg = MIMEText(body, "plain")
+    msg["From"] = EMAIL_SENDER
+    msg["To"] = EMAIL_RECEIVER
+    msg["Subject"] = subject
+
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+            server.login(EMAIL_SENDER, EMAIL_PASS)
+            server.sendmail(EMAIL_SENDER, EMAIL_RECEIVER, msg.as_string())
+        return {"status": "success", "message": "Email sent successfully"}
+    except Exception as e:
+        traceback.print_exc()
+        return {"status": "error", "message": str(e)}
+
+# ---------- MAIN HANDLER ----------
+def lambda_handler(event, context):
+# API Gateway
+cors_headers = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'https://www.chakorahub.com',
+        'Access-Control-Allow-Methods': 'PUT, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+        'Access-Control-Allow-Credentials': 'true'
+    }
+ 
+# Process private key
+    try:
+        from cryptography.hazmat.backends import default_backend
+        from cryptography.hazmat.primitives import serialization
+ 
+        p_key = serialization.load_pem_private_key(
+           PRIVATE_KEY_CONTENT.encode(),
+           password=os.environ.get('PRIVATE_KEY_PASSPHRASE').encode() if os.environ.get('PRIVATE_KEY_PASSPHRASE') else None,
+           backend=default_backend()
+        )
+ 
+        PKB = p_key.private_bytes(
+            encoding=serialization.Encoding.DER,
+            format=serialization.PrivateFormat.PKCS8,
+            encryption_algorithm=serialization.NoEncryption()
+        )
+        print("✅ Private key processed successfully")
+    except Exception as e:
+        print(f"❌ Error processing private key: {str(e)}")
+        return {
+            'statusCode': 500,
+            'headers': cors_headers,
+            'body': json.dumps({'message': 'Key processing failed', 'error': str(e)})
+        }
+    """
+    JSON Structure:
+    {
+      "action": "<register|login|submit_enquiry|submit_feedback|fetch_user|fetch_batches|fetch_upcoming_batches|get_feedback_list>",
+      "data": { ... }
+    }
+    """
+    try:
+        action = event.get("action")
+        data = event.get("data", {})
+
+        if action == "register":
+            return register_user(data)
+        elif action == "login":
+            return login_user(data)
+        elif action == "submit_enquiry":
+            return submit_enquiry(data)
+        elif action == "submit_feedback":
+            return submit_feedback(data)
+        elif action == "fetch_user":
+            return fetch_user(data)
+        elif action == "fetch_batches":
+            return fetch_batches(status="active")
+        elif action == "fetch_upcoming_batches":
+            return fetch_batches(status="pending")
+        elif action == "get_feedback_list":
+            return get_feedback_list()
+        else:
+            return {"statusCode": 400, "body": json.dumps({"error": "Invalid action"})}
+
+    except Exception as e:
+        traceback.print_exc()
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+
+# ---------- REGISTER USER ----------
+def register_user(data):
+    conn = get_connection()
+    if not conn:
+        return {"statusCode": 500, "body": json.dumps({"error": "DB connection failed"})}
+
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                "INSERT INTO nrm_users (username, email, phone, usertype) VALUES (%s, %s, %s, %s)",
+                (data["username"], data["email"], data["phone"], data.get("usertype", "student"))
+            )
+            user_id = cur.lastrowid
+            cur.execute(
+                "INSERT INTO nrm_logins (user_id, password, is_active) VALUES (%s, %s, 'N')",
+                (user_id, data["password"])
+            )
+            conn.commit()
+            return {"statusCode": 200, "body": json.dumps({"message": "User registered successfully"})}
+    except Exception as e:
+        conn.rollback()
+        traceback.print_exc()
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+    finally:
+        conn.close()
+
+# ---------- LOGIN USER ----------
+def login_user(data):
+    conn = get_connection()
+    if not conn:
+        return {"statusCode": 500, "body": json.dumps({"error": "DB connection failed"})}
+
+    try:
+        with conn.cursor(pymysql.cursors.DictCursor) as cur:
+            cur.execute("""
+                SELECT u.id, u.username, u.email, l.password
+                FROM nrm_users u
+                JOIN nrm_logins l ON u.id = l.user_id
+                WHERE u.email = %s OR u.phone = %s
+            """, (data["username"], data["username"]))
+            user = cur.fetchone()
+            if not user:
+                return {"statusCode": 404, "body": json.dumps({"error": "User not found"})}
+
+            if user["password"] != data["password"]:
+                return {"statusCode": 401, "body": json.dumps({"error": "Incorrect password"})}
+
+            cur.execute("UPDATE nrm_logins SET is_active='Y' WHERE user_id=%s", (user["id"],))
+            conn.commit()
+            return {"statusCode": 200, "body": json.dumps({"message": "Login successful", "user": user})}
+    except Exception as e:
+        traceback.print_exc()
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+    finally:
+        conn.close()
+
+# ---------- SUBMIT ENQUIRY ----------
+def submit_enquiry(data):
+    conn = get_connection()
+    if not conn:
+        return {"statusCode": 500, "body": json.dumps({"error": "DB connection failed"})}
+
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT id FROM nrm_users WHERE email=%s", (data["email"],))
+            user = cur.fetchone()
+            if not user:
+                return {"statusCode": 404, "body": json.dumps({"error": "User not found"})}
+
+            cur.execute(
+                "INSERT INTO nrm_enquiries (student_id, enquiry) VALUES (%s, %s)",
+                (user[0], data["enquiry_text"])
+            )
+            conn.commit()
+            send_enquiry_email(data["name"], data["email"], data["phone"], data["enquiry_text"])
+            return {"statusCode": 200, "body": json.dumps({"message": "Enquiry submitted successfully"})}
+    except Exception as e:
+        conn.rollback()
+        traceback.print_exc()
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+    finally:
+        conn.close()
+
+# ---------- SUBMIT FEEDBACK ----------
+def submit_feedback(data):
+    conn = get_connection()
+    if not conn:
+        return {"statusCode": 500, "body": json.dumps({"error": "DB connection failed"})}
+
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT id FROM nrm_users WHERE email=%s", (data["email"],))
+            user = cur.fetchone()
+            if not user:
+                return {"statusCode": 404, "body": json.dumps({"error": "User not found"})}
+
+            cur.execute(
+                "INSERT INTO nrm_feedback (student_id, name, feedback_message) VALUES (%s, %s, %s)",
+                (user[0], data["name"], data["feedback_message"])
+            )
+            conn.commit()
+            return {"statusCode": 200, "body": json.dumps({"message": "Feedback submitted successfully"})}
+    except Exception as e:
+        conn.rollback()
+        traceback.print_exc()
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+    finally:
+        conn.close()
+
+# ---------- FETCH USER ----------
+def fetch_user(data):
+    conn = get_connection()
+    if not conn:
+        return {"statusCode": 500, "body": json.dumps({"error": "DB connection failed"})}
+
+    try:
+        with conn.cursor(pymysql.cursors.DictCursor) as cur:
+            cur.execute("SELECT id, username, email, phone, profile_pic, usertype FROM nrm_users WHERE email=%s", (data["email"],))
+            user = cur.fetchone()
+            if not user:
+                return {"statusCode": 404, "body": json.dumps({"error": "User not found"})}
+            return {"statusCode": 200, "body": json.dumps(user)}
+    except Exception as e:
+        traceback.print_exc()
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+    finally:
+        conn.close()
+
+# ---------- FETCH BATCHES (ACTIVE/PENDING) ----------
+def fetch_batches(status="active"):
+    conn = get_connection()
+    if not conn:
+        return {"statusCode": 500, "body": json.dumps({"error": "DB connection failed"})}
+
+    try:
+        with conn.cursor(pymysql.cursors.DictCursor) as cur:
+            cur.execute("""
+                SELECT c.course_name, l.language, s.status, r.start_date
+                FROM nrm_registrations r
+                JOIN nrm_courses c ON r.course_id = c.id
+                JOIN nrm_languages l ON r.language_id = l.id
+                JOIN nrm_statuses s ON r.status_id = s.id
+                WHERE LOWER(s.status) = %s
+                ORDER BY r.start_date DESC
+            """, (status,))
+            rows = cur.fetchall()
+            return {"statusCode": 200, "body": json.dumps(rows)}
+    except Exception as e:
+        traceback.print_exc()
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+    finally:
+        conn.close()
+
+# ---------- GET FEEDBACK LIST ----------
+def get_feedback_list():
+    conn = get_connection()
+    if not conn:
+        return {"statusCode": 500, "body": json.dumps({"error": "DB connection failed"})}
+
+    try:
+        with conn.cursor(pymysql.cursors.DictCursor) as cur:
+            cur.execute("""
+                SELECT u.username, f.feedback_message, f.submitted_at
+                FROM nrm_feedback f
+                JOIN nrm_users u ON f.student_id = u.id
+                ORDER BY f.submitted_at DESC
+                LIMIT 20
+            """)
+            feedbacks = cur.fetchall()
+            return {"statusCode": 200, "body": json.dumps(feedbacks)}
+    except Exception as e:
+        traceback.print_exc()
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+    finally:
+        conn.close()

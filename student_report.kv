@@ -1,0 +1,129 @@
+#:import dp kivy.metrics.dp
+
+<StudentReportScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        # ---------- HEADER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(100)
+            padding: dp(30), dp(10)
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0.56, 0.42, 0.80, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Image:
+                source: "images/logo.png"
+                size_hint_x: None
+                width: dp(80)
+
+            Label:
+                text: "Student Report"
+                font_size: "26sp"
+                bold: True
+                color: 1, 1, 1, 1
+
+            AnchorLayout:
+                anchor_x: 'right'
+                size_hint_x: None
+                width: dp(70)
+                ImageButton:
+                    id: profile_button
+                    source: root.profile_pic
+                    size_hint: None, None
+                    size: dp(50), dp(50)
+                    on_release: root.open_profile_dropdown(self)
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1
+                        Ellipse:
+                            pos: self.pos
+                            size: self.size
+
+        # ---------- TABLE HEADER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            spacing: dp(5)
+            padding: dp(5)
+            canvas.before:
+                Color:
+                    rgba: 0.23, 0.34, 0.59, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "First Name"
+                color: 1, 1, 1, 1
+            Label:
+                text: "Registration ID"
+                color: 1, 1, 1, 1
+            Label:
+                text: "Course"
+                color: 1, 1, 1, 1
+            Label:
+                text: "Email"
+                color: 1, 1, 1, 1
+            Label:
+                text: "Phone"
+                color: 1, 1, 1, 1
+            Label:
+                text: "Action"
+                color: 1, 1, 1, 1
+
+        # ---------- SCROLLABLE STUDENT GRID ----------
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            GridLayout:
+                id: student_grid
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(5)
+                padding: dp(5)
+
+        # ---------- BACK BUTTON ----------
+        AnchorLayout:
+            anchor_x: 'center'
+            size_hint_y: None
+            height: dp(60)
+            Button:
+                text: "⬅️ Back to Resources"
+                size_hint: None, None
+                size: dp(250), dp(50)
+                bold: True
+                background_normal: ''
+                background_color: 0.0, 0.48, 1, 1
+                color: 1, 1, 1, 1
+                on_release: root.go_back_to_resources()
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [12]
+
+        # ---------- FOOTER ----------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            canvas.before:
+                Color:
+                    rgba: 0.56,0.42,0.80,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: "ChakoraHub © 2025. All rights reserved."
+                color: 1,1,1,1
+                halign: "center"
+                valign: "middle"
+                text_size: self.size

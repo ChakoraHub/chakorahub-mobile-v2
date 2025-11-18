@@ -1,0 +1,748 @@
+[INFO   ] [Logger      ] Record log in C:\Users\Administrator\.kivy\logs\kivy_25-10-29_16.txt
+[INFO   ] [deps        ] Successfully imported "kivy_deps.angle" 0.4.0
+[INFO   ] [deps        ] Successfully imported "kivy_deps.glew" 0.3.1
+[INFO   ] [deps        ] Successfully imported "kivy_deps.sdl2" 0.8.0
+[INFO   ] [Kivy        ] v2.3.1
+[INFO   ] [Kivy        ] Installed at "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\__init__.py"
+[INFO   ] [Python      ] v3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]
+[INFO   ] [Python      ] Interpreter at "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe"
+[INFO   ] [Logger      ] Purge log fired. Processing...
+[INFO   ] [Logger      ] Purge finished!
+[INFO   ] [Factory     ] 195 symbols loaded
+[INFO   ] [Image       ] Providers: img_tex, img_dds, img_sdl2 (img_pil, img_ffpyplayer ignored)
+[INFO   ] [Window      ] Provider: sdl2
+[INFO   ] [Window      ] Activate GLES2/ANGLE context
+[INFO   ] [GL          ] Using the "OpenGL" graphics system
+[INFO   ] [GL          ] Backend used <angle_sdl2>
+[INFO   ] [GL          ] OpenGL version <b'OpenGL ES 3.0.0 (ANGLE 2.1.21998 git hash: 2eea91f8f0b2)'>
+[INFO   ] [GL          ] OpenGL vendor <b'Google Inc. (Microsoft)'>
+[INFO   ] [GL          ] OpenGL renderer <b'ANGLE (Microsoft, Microsoft Basic Render Driver (0x0000008C) Direct3D11 vs_5_0 ps_5_0, D3D11-10.0.26100.5074)'>
+[INFO   ] [GL          ] OpenGL parsed version: 3, 0
+[INFO   ] [GL          ] Shading version <b'OpenGL ES GLSL ES 3.00 (ANGLE 2.1.21998 git hash: 2eea91f8f0b2)'>
+[INFO   ] [GL          ] Texture max size <16384>
+[INFO   ] [GL          ] Texture max units <16>
+[INFO   ] [Window      ] auto add sdl2 input provider
+[INFO   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[INFO   ] [Text        ] Provider: sdl2
+[DEBUG  ] Injecting ssl_wrap_socket_with_ocsp
+[DEBUG  ] Failed to import pyarrow or pandas. Cannot use pandas fetch API. Please install snowflake-connector-python with the `pandas` extra to use these features.
+🚀 Starting ChakoraHub App...
+✅ Loaded resources.kv
+✅ Loaded enquiry.kv
+✅ Loaded register.kv
+✅ Loaded adminregister.kv
+✅ Loaded feedback.kv
+✅ Loaded profile.kv
+✅ Loaded demovideos.kv
+✅ Loaded blogger.kv
+✅ Loaded student_report.kv
+[WARNING] [Factory     ] Ignored class "DropdownHoverButton" re-declaration. Current -  module: None, cls: <class 'widgets.DropdownHoverButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: HoverButton, filename: c:\mobile\py\settings.kv.
+[WARNING] [Factory     ] Ignored class "ImageButton" re-declaration. Current -  module: None, cls: <class 'widgets.ImageButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: ButtonBehavior+Image, filename: c:\mobile\py\settings.kv.
+✅ Loaded settings.kv
+[ERROR  ] [Image       ] Not found <images/logo.png>
+✅ Loaded contactus.kv
+[WARNING] [Factory     ] Ignored class "DropdownHoverButton" re-declaration. Current -  module: None, cls: <class 'widgets.DropdownHoverButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: HoverButton, filename: c:\mobile\py\calender.kv.
+[WARNING] [Factory     ] Ignored class "ImageButton" re-declaration. Current -  module: None, cls: <class 'widgets.ImageButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: ButtonBehavior+Image, filename: c:\mobile\py\calender.kv.
+✅ Loaded calender.kv
+✅ Loaded aboutus.kv
+🔄 AdminPortalScreen entered - loading data...
+[INFO   ] [Snowflake Connector for Python Version] 4.0.0, Python Version: 3.13.7, Platform: Windows-2025Server-10.0.26100-SP0
+[DEBUG  ] connect
+[DEBUG  ] __config
+[INFO   ] Connecting to GLOBAL Snowflake domain
+[DEBUG  ] This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[DEBUG  ] [use_numpy   ] False
+[DEBUG  ] initialized
+[DEBUG  ] [REST API object was created] gpguymt-ta88699.snowflakecomputing.com:443
+[DEBUG  ] authenticate
+[DEBUG  ] [IMDS ENDPOINT] http://169.254.169.254/
+[DEBUG  ] Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] Changing event name from before-call.apigateway to before-call.api-gateway
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] [Starting new HTTP connection (1)] metadata.google.internal:80
+[DEBUG  ] Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+[DEBUG  ] [Starting new HTTP connection (1)] metadata.google.internal:80
+[DEBUG  ] [http          ]//169.254.169.254:80 "PUT /latest/api/token HTTP/1.1" 200 56
+[DEBUG  ] [http        ]//169.254.169.254:80 "GET /metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com HTTP/1.1" 401 0
+[DEBUG  ] Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+[DEBUG  ] [http        ]//169.254.169.254:80 "GET /metadata/instance?api-version=2021-02-01 HTTP/1.1" 401 0
+[DEBUG  ] [Resetting dropped connection] 169.254.169.254
+[DEBUG  ] Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+[DEBUG  ] [http          ]//169.254.169.254:80 "GET //latest/dynamic/instance-identity/document HTTP/1.1" 200 492
+[DEBUG  ] Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+[DEBUG  ] Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+[DEBUG  ] Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+[DEBUG  ] Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+[DEBUG  ] Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+[DEBUG  ] Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+[DEBUG  ] [IMDS ENDPOINT] http://169.254.169.254/
+[DEBUG  ] [Looking for credentials via] env
+[DEBUG  ] [Looking for credentials via] assume-role
+[DEBUG  ] [Looking for credentials via] assume-role-with-web-identity
+[DEBUG  ] [Looking for credentials via] sso
+[DEBUG  ] [Looking for credentials via] shared-credentials-file
+[DEBUG  ] [Looking for credentials via] custom-process
+[DEBUG  ] [Looking for credentials via] config-file
+[DEBUG  ] [Looking for credentials via] ec2-credentials-file
+[DEBUG  ] [Looking for credentials via] boto-config
+[DEBUG  ] [Looking for credentials via] container-role
+[DEBUG  ] [Looking for credentials via] iam-role
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] [http          ]//169.254.169.254:80 "PUT /latest/api/token HTTP/1.1" 200 56
+[DEBUG  ] [Resetting dropped connection] 169.254.169.254
+[DEBUG  ] [http          ]//169.254.169.254:80 "GET /latest/meta-data/iam/security-credentials/ HTTP/1.1" 200 12
+[DEBUG  ] [Resetting dropped connection] 169.254.169.254
+[DEBUG  ] [http          ]//169.254.169.254:80 "GET /latest/meta-data/iam/security-credentials/EC2-SSM-Role HTTP/1.1" 200 1590
+[INFO   ] [Found credentials from IAM Role] EC2-SSM-Role
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\endpoints.json
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\sdk-default-configuration.json
+[DEBUG  ] [Event choose-service-name] calling handler <function handle_service_name_alias at 0x000002BE606427A0>
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\sts\2011-06-15\service-2.json.gz
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\sts\2011-06-15\endpoint-rule-set-1.json.gz
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\partitions.json
+[DEBUG  ] [Event creating-client-class.sts] calling handler <function add_generate_presigned_url at 0x000002BE605BFCE0>
+[DEBUG  ] [Looking for endpoint for sts via] environment_service
+[DEBUG  ] [Looking for endpoint for sts via] environment_global
+[DEBUG  ] [Looking for endpoint for sts via] config_service
+[DEBUG  ] [Looking for endpoint for sts via] config_global
+[DEBUG  ] No configured endpoint found.
+[DEBUG  ] Setting sts timeout as (0.2, 0.2)
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\_retry.json
+[DEBUG  ] [Registering retry handlers for service] sts
+[DEBUG  ] [Event before-parameter-build.sts.GetCallerIdentity] calling handler <function generate_idempotent_uuid at 0x000002BE60654860>
+[DEBUG  ] [Event before-parameter-build.sts.GetCallerIdentity] calling handler <function _handle_request_validation_mode_member at 0x000002BE60657420>
+[DEBUG  ] [Calling endpoint provider with parameters] {'Region': 'aws-global', 'UseDualStack': False, 'UseFIPS': False, 'UseGlobalEndpoint': False}
+[DEBUG  ] [Endpoint provider result] https://sts.amazonaws.com
+[DEBUG  ] [Selecting from endpoint provider's list of auth schemes] "sigv4". User selected auth scheme is: "None"
+[DEBUG  ] [Selected auth type "v4" as "v4" with signing context params] {'region': 'us-east-1', 'signing_name': 'sts'}
+[DEBUG  ] [Event before-call.sts.GetCallerIdentity] calling handler <function add_recursion_detection_header at 0x000002BE60642DE0>
+[DEBUG  ] [Event before-call.sts.GetCallerIdentity] calling handler <function inject_api_version_header_if_needed at 0x000002BE60656340>
+[DEBUG  ] [Making request for OperationModel(name=GetCallerIdentity) with params] {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': 'Boto3/1.40.53 md/Botocore#1.40.53 ua/2.1 os/windows#2025Server md/arch#amd64 lang/python#3.13.7 md/pyimpl#CPython exec-env/EC2 m/Z,b,D,0 cfg/retry-mode#legacy Botocore/1.40.53'}, 'body': {'Action': 'GetCallerIdentity', 'Version': '2011-06-15'}, 'url': 'https://sts.amazonaws.com/', 'context': {'client_region': 'aws-global', 'client_config': <botocore.config.Config object at 0x000002BE62168910>, 'has_streaming_input': False, 'auth_type': 'v4', 'unsigned_payload': None, 'auth_options': ['aws.auth#sigv4'], 'signing': {'region': 'us-east-1', 'signing_name': 'sts'}, 'endpoint_properties': {'authSchemes': [{'name': 'sigv4', 'signingName': 'sts', 'signingRegion': 'us-east-1'}]}}}
+[DEBUG  ] [Event request-created.sts.GetCallerIdentity] calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x000002BE6217ECF0>>
+[DEBUG  ] [Event choose-signer.sts.GetCallerIdentity] calling handler <function set_operation_specific_signer at 0x000002BE606545E0>
+[DEBUG  ] Calculating signature using v4 auth.
+[DEBUG  ] [CanonicalRequest]
+POST
+/
+
+content-type:application/x-www-form-urlencoded; charset=utf-8
+host:sts.amazonaws.com
+x-amz-date:20251029T190716Z
+x-amz-security-token:****
+
+content-type;host;x-amz-date;x-amz-security-token
+****
+[DEBUG  ] [StringToSign]
+AWS4-HMAC-SHA256
+20251029T190716Z
+20251029/us-east-1/sts/aws4_request
+0861ee1deb43fd68a9f81dd30dfb18ec040f0294b6cf4dac85445cf421a8e280
+[DEBUG  ] [Signature   ]
+b649a6e37b738450102d479a53ed91728945ec75fd784e9d1bbb14daf8f64139
+[DEBUG  ] [Event request-created.sts.GetCallerIdentity] calling handler <bound method UserAgentString.rebuild_and_replace_user_agent_handler of <botocore.useragent.UserAgentString object at 0x000002BE62169950>>
+[DEBUG  ] [Event request-created.sts.GetCallerIdentity] calling handler <function add_retry_headers at 0x000002BE60656CA0>
+[DEBUG  ] [Sending http request] <AWSPreparedRequest stream_output=False, method=POST, url=https://sts.amazonaws.com/, headers={'Content-Type': b'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': b'Boto3/1.40.53 md/Botocore#1.40.53 ua/2.1 os/windows#2025Server md/arch#amd64 lang/python#3.13.7 md/pyimpl#CPython exec-env/EC2 m/Z,b,D,0 cfg/retry-mode#legacy Botocore/1.40.53', 'X-Amz-Date': b'20251029T190716Z', 'X-Amz-Security-Token': b'IQoJb3JpZ2luX2VjECIaCmV1LW5vcnRoLTEiRzBFAiEA+y6en2BGBMt4rOCYAPqrwqH1o63rCPQWhc8cHDIdW8oCIB6Hfd2tlkYkDT7y2UPDA/2Xj+LsXL1qIkXoYzB8QXBwKskFCNv//////////wEQABoMMTk2NTI3NzA1Nzg2IgzWgZrzdSmfmioSGQsqnQVtrRxY5a9SY3LesuQDsnylO6Zju7YBSW9vdJC+SeIhBbMKUiCzOn9jiUHoTGZZeoh1zwb3DrdVbB5Cc+i50TIrlFzw8EXxyuyXj5P7Uw6RpArrySoqWmM/YraO2wMCvgS0G+Wr+wcZJj18M/KdY4Nj+eVY4NIhfnCvYJDIPu91ox3bYxrFN4koO9YF5PcTb2OlMa3nQIthygJglMaN6LZQAVVUf+I3+77/HjAziizfo3WiRAHaVjK5LnvbgVjfaOibKJ4DHw+75oeHpkZv86z5HMhKIgY2QKEk6fIuteB19Uvs9vVySyVk1xcyDA7B/JKpl4QQ1YUOBWRfaWUpOTASky2r/wzzNCYbbQ25bf4GM2XS4NlDd3fhchqGMm9zkblKDygWDorvVpCLycj0YYYasWN04mdS1sdCPNHcXpTnGDELB6Fc5Sdng/ysp0PwUREUbj3IvNAalbyNLP1lm6rXzusS6cedfv/qj4OPEVINXmF710pq3lGCh264pu4ejjZKeY1dYiHmmCxUFMpcl3Awf+itcpQJMoQex2HxaGCcZi/wVbx8xlMTkmGllJ7sGDwyxMP8XDAI7CbxA2iNqxLXGIge66XV8DOeRwxb5VwKRM662RwbezZfx1VhjoQDUPu81SdtdThbSgaOlK3fZoqzxW3+o1nE6xdhJbAJTB5EPBTgu8Q8vwJjMf2SjxaEhiidoakoJF5XMUoZS4caaToUiCWBhogutOklIRji7ZqK8BWdZdGd9oY6DkQ6ankrNnqFYBxCRfOyYou75GZYvAAgANlf7pLov9sKfbvd0PZO8VSr2+RyieI8KBtuR/8xDg1XCn1e53uvc6mF45w5ZBcyrhuCnXSHc6nmrA9o6q1iG7csoZkQnNeIbRyaZqcw7rCJyAY6sQFkR3NV6kGCAC6qEvnQxiv5bDHUSw+gmf9Uj2qDVmSXDq58axgB/bJJrzKR8uzwlM80j43pw4UluvpkJUCvGzqimz9oeYfWyAd9NTUg4VndkRl3DVlZL+5IfeFY1nWxcF8AqvtbN5KE8jqGNcFsGBKZcYbtuUODh0faJ4biOW/p/uwtvnEV747GpTa30u55AtRlGGefgYsgFkSHncLGoB8YgwZ1iDzyemmQyBCqKWWBERo=', 'Authorization': b'AWS4-HMAC-SHA256 Credential=ASIAS3QPWZ25C6LSBA4Q/20251029/us-east-1/sts/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-security-token, Signature=****', 'amz-sdk-invocation-id': b'a5d47479-4812-434b-8d7f-2fe2e489ef49', 'amz-sdk-request': b'attempt=1', 'Content-Length': '43'}>
+[DEBUG  ] [Certificate path] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\certifi\cacert.pem
+[DEBUG  ] [Starting new HTTPS connection (1)] sts.amazonaws.com:443
+[DEBUG  ] [https          ]//sts.amazonaws.com:443 "POST / HTTP/1.1" 200 457
+[DEBUG  ] [Response headers] {'x-amzn-RequestId': '32dade7f-fafc-41bf-bea1-10bc3bc12db4', 'X-Amz-Sts-Extended-Request-Id': 'MTp1cy1lYXN0LTE6UzoxNzYxNzY0ODM3NDYwOkc6ampYSVN4UzU=', 'Content-Type': 'text/xml', 'Content-Length': '457', 'Date': 'Wed, 29 Oct 2025 19:07:17 GMT'}
+[DEBUG  ] [Response body]
+b'<GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">\n  <GetCallerIdentityResult>\n    <Arn>arn:aws:sts::196527705786:assumed-role/EC2-SSM-Role/i-0d3ccfdee543b5968</Arn>\n    <UserId>AROAS3QPWZ25AS6TCY3ON:i-0d3ccfdee543b5968</UserId>\n    <Account>196527705786</Account>\n  </GetCallerIdentityResult>\n  <ResponseMetadata>\n    <RequestId>32dade7f-fafc-41bf-bea1-10bc3bc12db4</RequestId>\n  </ResponseMetadata>\n</GetCallerIdentityResponse>\n'
+[DEBUG  ] [Event needs-retry.sts.GetCallerIdentity] calling handler <botocore.retryhandler.RetryHandler object at 0x000002BE62A2C830>
+[DEBUG  ] No retry needed.
+[DEBUG  ] account=gpguymt-ta88699, user=ChakoraHub, database=VSRSUBHASH$CHAKORA_DB, schema=CHAKORA, warehouse=COMPUTE_WH, role=None, request_id=fce8ad18-8979-4b92-b818-45a3d0fb79f3
+[DEBUG  ] [body['data']] {'CLIENT_APP_ID': 'PythonConnector', 'CLIENT_APP_VERSION': '4.0.0', 'SVN_REVISION': None, 'ACCOUNT_NAME': 'gpguymt-ta88699', 'LOGIN_NAME': 'ChakoraHub', 'CLIENT_ENVIRONMENT': {'APPLICATION': 'PythonConnector', 'APPLICATION_PATH': 'c:\\mobile\\py\\main_app.py', 'OS': 'Windows', 'OS_VERSION': 'Windows-2025Server-10.0.26100-SP0', 'PYTHON_VERSION': '3.13.7', 'PYTHON_RUNTIME': 'CPython', 'PYTHON_COMPILER': 'MSC v.1944 64 bit (AMD64)', 'OCSP_MODE': 'FAIL_OPEN', 'CERT_REVOCATION_CHECK_MODE': 'DISABLED', 'TRACING': 0, 'LOGIN_TIMEOUT': None, 'NETWORK_TIMEOUT': None, 'SOCKET_TIMEOUT': None, 'PLATFORM': ['is_ec2_instance', 'has_aws_identity']}, 'PASSWORD': '******', 'SESSION_PARAMETERS': {'CLIENT_PREFETCH_THREADS': 4}}
+[DEBUG  ] [Converted retries value] 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+[DEBUG  ] [remaining request timeout] N/A ms, retry cnt: 1
+[DEBUG  ] [Request guid] c867cd62-f972-4b50-ba0c-c42ef12e68ce
+[DEBUG  ] [socket timeout] 60
+[DEBUG  ] [Starting new HTTPS connection (1)] gpguymt-ta88699.snowflakecomputing.com:443
+[DEBUG  ] [CRL Check Mode] DISABLED
+[DEBUG  ] [OCSP Mode   ] FAIL_OPEN, OCSP response cache file name: None
+[DEBUG  ] [cache directory] C:\Users\Administrator\AppData\Local\Snowflake\Caches
+[DEBUG  ] [ocsp_response_cache_uri] file://C:/Users/Administrator/AppData/Local/Snowflake/Caches/ocsp_response_cache.json
+[DEBUG  ] [OCSP_VALIDATION_CACHE size] 418
+[DEBUG  ] [OCSP response cache server is enabled] http://ocsp.snowflakecomputing.com/ocsp_response_cache.json
+[DEBUG  ] [OCSP dynamic cache server RETRY URL] None
+[DEBUG  ] [validating certificate] gpguymt-ta88699.snowflakecomputing.com
+[DEBUG  ] [# of certificates] 3
+[DEBUG  ] [reading certificate bundle] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\certifi\cacert.pem
+[DEBUG  ] [subject     ] OrderedDict({'country_name': 'US', 'state_or_province_name': 'Montana', 'locality_name': 'Bozeman', 'organization_name': 'Snowflake Inc.', 'common_name': '*.central-india.azure.snowflakecomputing.com'}), issuer: OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'})
+[DEBUG  ] [subject     ] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'}), issuer: OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'organizational_unit_name': 'www.digicert.com', 'common_name': 'DigiCert Global Root G2'})
+[DEBUG  ] [A trusted root certificate found] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'}), stopping chain traversal here
+[DEBUG  ] [not found issuer_der] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'organizational_unit_name': 'www.digicert.com', 'common_name': 'DigiCert Global Root G2'})
+[DEBUG  ] [hit cache for subject] OrderedDict({'country_name': 'US', 'state_or_province_name': 'Montana', 'locality_name': 'Bozeman', 'organization_name': 'Snowflake Inc.', 'common_name': '*.central-india.azure.snowflakecomputing.com'})
+[DEBUG  ] [hit cache for subject] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'})
+[DEBUG  ] ok
+[DEBUG  ] [https       ]//gpguymt-ta88699.snowflakecomputing.com:443 "POST /session/v1/login-request?request_id=fce8ad18-8979-4b92-b818-45a3d0fb79f3&databaseName=VSRSUBHASH%24CHAKORA_DB&schemaName=CHAKORA&warehouse=COMPUTE_WH&request_guid=c867cd62-f972-4b50-ba0c-c42ef12e68ce HTTP/1.1" 200 402
+[DEBUG  ] SUCCESS
+[DEBUG  ] ret[code] = 394508, after post request
+[DEBUG  ] completed authentication
+❌ DB Connection Error: 250001 (08001): Failed to connect to DB: gpguymt-ta88699.snowflakecomputing.com:443. Failed to authenticate: MFA with TOTP is required. To authenticate, provide both your password and a current TOTP passcode.
+🔄 Refreshing category spinners...
+[ERROR  ] [Image       ] Not found <images/profile.jpg>
+[ERROR  ] [Image       ] Not found <images/logo.png>
+✅ Loaded upload.kv
+✅ Loaded offers.kv
+[ERROR  ] [Image       ] Not found <images/default.png>
+[ERROR  ] [Image       ] Not found <images/logo.jpg>
+[ERROR  ] [Image       ] Not found <images/default.png>
+[INFO   ] [GL          ] NPOT texture support is available
+ Traceback (most recent call last):
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 245, in create_handler
+     return eval(value, idmap), bound_list
+            ~~~~^^^^^^^^^^^^^^
+   File "c:\mobile\py\home.kv", line 148, in <module>
+     text: root.heading
+     ^^^^
+   File "kivy\\weakproxy.pyx", line 32, in kivy.weakproxy.WeakProxy.__getattr__
+ AttributeError: 'BatchBox' object has no attribute 'heading'
+
+ During handling of the above exception, another exception occurred:
+
+ Traceback (most recent call last):
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 699, in _apply_rule
+     value, bound = create_handler(
+                    ~~~~~~~~~~~~~~^
+         widget_set, widget_set, key, value, rule,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rctx['ids'])
+         ^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 248, in create_handler
+     raise BuilderException(rule.ctx, rule.line,
+                            '{}: {}'.format(e.__class__.__name__, e),
+                            cause=tb)
+ kivy.lang.builder.BuilderException: Parser: File "c:\mobile\py\home.kv", line 148:
+ ...
+     146:    Label:
+     147:        id: heading
+ >>  148:        text: root.heading
+     149:        color: 0, 0.5, 1, 1
+     150:        bold: True
+ ...
+ AttributeError: 'BatchBox' object has no attribute 'heading'
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 245, in create_handler
+     return eval(value, idmap), bound_list
+            ~~~~^^^^^^^^^^^^^^
+   File "c:\mobile\py\home.kv", line 148, in <module>
+     text: root.heading
+     ^^^^
+   File "kivy\\weakproxy.pyx", line 32, in kivy.weakproxy.WeakProxy.__getattr__
+
+ 
+ During handling of the above exception, another exception occurred:
+
+ Traceback (most recent call last):
+   File "c:\mobile\py\main_app.py", line 315, in <module>
+     ChakoraHubApp().run()
+     ~~~~~~~~~~~~~~~~~~~^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\app.py", line 955, in run
+     self._run_prepare()
+     ~~~~~~~~~~~~~~~~~^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\app.py", line 925, in _run_prepare
+     root = self.build()
+   File "c:\mobile\py\main_app.py", line 99, in build
+     self.root = Builder.load_file("home.kv")
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 310, in load_file
+     return self.load_string(data, **kwargs)
+            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 412, in load_string
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         widget, parser.root, parser.root,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 665, in _apply_rule
+     child.apply_class_lang_rules(
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+         root=rctx['ids']['root'], rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\uix\widget.py", line 470, in apply_class_lang_rules
+     Builder.apply(
+     ~~~~~~~~~~~~~^
+         self, ignored_consts=ignored_consts,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 545, in apply
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         widget, rule, rule, ignored_consts=ignored_consts,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 667, in _apply_rule
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         child, crule, rootrule, rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 667, in _apply_rule
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         child, crule, rootrule, rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 667, in _apply_rule
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         child, crule, rootrule, rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   [Previous line repeated 2 more times]
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 665, in _apply_rule
+     child.apply_class_lang_rules(
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+         root=rctx['ids']['root'], rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\uix\widget.py", line 470, in apply_class_lang_rules
+     Builder.apply(
+     ~~~~~~~~~~~~~^
+         self, ignored_consts=ignored_consts,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 545, in apply
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         widget, rule, rule, ignored_consts=ignored_consts,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 714, in _apply_rule
+     raise BuilderException(rule.ctx, rule.line,
+                            '{}: {}'.format(e.__class__.__name__,
+                                            e), cause=tb)
+ kivy.lang.builder.BuilderException: Parser: File "c:\mobile\py\home.kv", line 148:
+ ...
+     146:    Label:
+     147:        id: heading
+ >>  148:        text: root.heading
+     149:        color: 0, 0.5, 1, 1
+     150:        bold: True
+ ...
+ BuilderException: Parser: File "c:\mobile\py\home.kv", line 148:
+ ...
+     146:    Label:
+     147:        id: heading
+ >>  148:        text: root.heading
+     149:        color: 0, 0.5, 1, 1
+     150:        bold: True
+ ...
+ AttributeError: 'BatchBox' object has no attribute 'heading'
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 245, in create_handler
+     return eval(value, idmap), bound_list
+            ~~~~^^^^^^^^^^^^^^
+   File "c:\mobile\py\home.kv", line 148, in <module>
+     text: root.heading
+     ^^^^
+   File "kivy\\weakproxy.pyx", line 32, in kivy.weakproxy.WeakProxy.__getattr__
+
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 699, in _apply_rule
+     value, bound = create_handler(
+                    ~~~~~~~~~~~~~~^
+         widget_set, widget_set, key, value, rule,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rctx['ids'])
+         ^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 248, in create_handler
+     raise BuilderException(rule.ctx, rule.line,
+                            '{}: {}'.format(e.__class__.__name__, e),
+                            cause=tb)
+
+PS C:\Users\Administrator>
+PS C:\Users\Administrator> 
+PS C:\Users\Administrator> 
+PS C:\Users\Administrator> cat "c:\mobile\py\widgets.py" | grep "user"
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a 
+path was included, verify that the path is correct and try again.
+At line:1 char:33
++ cat "c:\mobile\py\widgets.py" | grep "user"
++                                 ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Administrator> cat c:\mobile\py\widgets.py | grep user
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a 
+path was included, verify that the path is correct and try again.
+At line:1 char:31
++ cat c:\mobile\py\widgets.py | grep user
++                               ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Administrator> cd "c:\mobile\py\widgets.py"
+cd : Cannot find path 'c:\mobile\py\widgets.py' because it does not exist.
+At line:1 char:1
++ cd "c:\mobile\py\widgets.py"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (c:\mobile\py\widgets.py:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\Administrator> cd c:\mobile\py\widgets.py
+cd : Cannot find path 'c:\mobile\py\widgets.py' because it does not exist.
+At line:1 char:1
++ cd c:\mobile\py\widgets.py
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (c:\mobile\py\widgets.py:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\Administrator> ^C
+PS C:\Users\Administrator> cd "c:\mobile\py"          
+PS C:\mobile\py> 
+PS C:\mobile\py> 
+PS C:\mobile\py> 
+PS C:\mobile\py> & C:/Users/Administrator/AppData/Local/Programs/Python/Python313/python.exe c:/mobile/py/main_app.py
+[INFO   ] [Logger      ] Record log in C:\Users\Administrator\.kivy\logs\kivy_25-10-30_0.txt
+[INFO   ] [deps        ] Successfully imported "kivy_deps.angle" 0.4.0
+[INFO   ] [deps        ] Successfully imported "kivy_deps.glew" 0.3.1
+[INFO   ] [deps        ] Successfully imported "kivy_deps.sdl2" 0.8.0
+[INFO   ] [Kivy        ] v2.3.1
+[INFO   ] [Kivy        ] Installed at "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\__init__.py"
+[INFO   ] [Python      ] v3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]
+[INFO   ] [Python      ] Interpreter at "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe"
+[INFO   ] [Logger      ] Purge log fired. Processing...
+[INFO   ] [Logger      ] Purge finished!
+[INFO   ] [Factory     ] 195 symbols loaded
+[INFO   ] [Image       ] Providers: img_tex, img_dds, img_sdl2 (img_pil, img_ffpyplayer ignored)
+[INFO   ] [Window      ] Provider: sdl2
+[INFO   ] [Window      ] Activate GLES2/ANGLE context
+[INFO   ] [GL          ] Using the "OpenGL" graphics system
+[INFO   ] [GL          ] Backend used <angle_sdl2>
+[INFO   ] [GL          ] OpenGL version <b'OpenGL ES 3.0.0 (ANGLE 2.1.21998 git hash: 2eea91f8f0b2)'>
+[INFO   ] [GL          ] OpenGL vendor <b'Google Inc. (Microsoft)'>
+[INFO   ] [GL          ] OpenGL renderer <b'ANGLE (Microsoft, Microsoft Basic Render Driver (0x0000008C) Direct3D11 vs_5_0 ps_5_0, D3D11-10.0.26100.5074)'>
+[INFO   ] [GL          ] OpenGL parsed version: 3, 0
+[INFO   ] [GL          ] Shading version <b'OpenGL ES GLSL ES 3.00 (ANGLE 2.1.21998 git hash: 2eea91f8f0b2)'>
+[INFO   ] [GL          ] Texture max size <16384>
+[INFO   ] [GL          ] Texture max units <16>
+[INFO   ] [Window      ] auto add sdl2 input provider
+[INFO   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[INFO   ] [Text        ] Provider: sdl2
+[DEBUG  ] Injecting ssl_wrap_socket_with_ocsp
+[DEBUG  ] Failed to import pyarrow or pandas. Cannot use pandas fetch API. Please install snowflake-connector-python with the `pandas` extra to use these features.
+🚀 Starting ChakoraHub App...
+✅ Loaded resources.kv
+✅ Loaded enquiry.kv
+✅ Loaded register.kv
+✅ Loaded adminregister.kv
+✅ Loaded feedback.kv
+✅ Loaded profile.kv
+✅ Loaded demovideos.kv
+✅ Loaded blogger.kv
+✅ Loaded student_report.kv
+[WARNING] [Factory     ] Ignored class "DropdownHoverButton" re-declaration. Current -  module: None, cls: <class 'widgets.DropdownHoverButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: HoverButton, filename: C:\mobile\py\settings.kv.
+[WARNING] [Factory     ] Ignored class "ImageButton" re-declaration. Current -  module: None, cls: <class 'widgets.ImageButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: ButtonBehavior+Image, filename: C:\mobile\py\settings.kv.
+✅ Loaded settings.kv
+[ERROR  ] [Image       ] Not found <images/logo.png>
+✅ Loaded contactus.kv
+[WARNING] [Factory     ] Ignored class "DropdownHoverButton" re-declaration. Current -  module: None, cls: <class 'widgets.DropdownHoverButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: HoverButton, filename: C:\mobile\py\calender.kv.
+[WARNING] [Factory     ] Ignored class "ImageButton" re-declaration. Current -  module: None, cls: <class 'widgets.ImageButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: ButtonBehavior+Image, filename: C:\mobile\py\calender.kv.
+✅ Loaded calender.kv
+✅ Loaded aboutus.kv
+🔄 AdminPortalScreen entered - loading data...
+[INFO   ] [Snowflake Connector for Python Version] 4.0.0, Python Version: 3.13.7, Platform: Windows-2025Server-10.0.26100-SP0
+[DEBUG  ] connect
+[DEBUG  ] __config
+[INFO   ] Connecting to GLOBAL Snowflake domain
+[DEBUG  ] This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[DEBUG  ] [use_numpy   ] False
+[DEBUG  ] initialized
+[DEBUG  ] [REST API object was created] gpguymt-ta88699.snowflakecomputing.com:443
+[DEBUG  ] authenticate
+[DEBUG  ] [IMDS ENDPOINT] http://169.254.169.254/
+[DEBUG  ] Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] Changing event name from before-call.apigateway to before-call.api-gateway
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] [Starting new HTTP connection (1)] metadata.google.internal:80
+[DEBUG  ] [Starting new HTTP connection (1)] metadata.google.internal:80
+[DEBUG  ] [http        ]//169.254.169.254:80 "GET /metadata/instance?api-version=2021-02-01 HTTP/1.1" 401 0
+[DEBUG  ] Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+[DEBUG  ] [http          ]//169.254.169.254:80 "PUT /latest/api/token HTTP/1.1" 200 56
+[DEBUG  ] [http        ]//169.254.169.254:80 "GET /metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com HTTP/1.1" 401 0
+[DEBUG  ] Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+[DEBUG  ] Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+[DEBUG  ] [Resetting dropped connection] 169.254.169.254
+[DEBUG  ] Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+[DEBUG  ] [http          ]//169.254.169.254:80 "GET //latest/dynamic/instance-identity/document HTTP/1.1" 200 492
+[DEBUG  ] Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+[DEBUG  ] Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+[DEBUG  ] Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+[DEBUG  ] Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+[DEBUG  ] Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+[DEBUG  ] [IMDS ENDPOINT] http://169.254.169.254/
+[DEBUG  ] [Looking for credentials via] env
+[DEBUG  ] [Looking for credentials via] assume-role
+[DEBUG  ] [Looking for credentials via] assume-role-with-web-identity
+[DEBUG  ] [Looking for credentials via] sso
+[DEBUG  ] [Looking for credentials via] shared-credentials-file
+[DEBUG  ] [Looking for credentials via] custom-process
+[DEBUG  ] [Looking for credentials via] config-file
+[DEBUG  ] [Looking for credentials via] ec2-credentials-file
+[DEBUG  ] [Looking for credentials via] boto-config
+[DEBUG  ] [Looking for credentials via] container-role
+[DEBUG  ] [Looking for credentials via] iam-role
+[DEBUG  ] [Starting new HTTP connection (1)] 169.254.169.254:80
+[DEBUG  ] [http          ]//169.254.169.254:80 "PUT /latest/api/token HTTP/1.1" 200 56
+[DEBUG  ] [Resetting dropped connection] 169.254.169.254
+[DEBUG  ] [http          ]//169.254.169.254:80 "GET /latest/meta-data/iam/security-credentials/ HTTP/1.1" 200 12
+[DEBUG  ] [Resetting dropped connection] 169.254.169.254
+[DEBUG  ] [http          ]//169.254.169.254:80 "GET /latest/meta-data/iam/security-credentials/EC2-SSM-Role HTTP/1.1" 200 1590
+[INFO   ] [Found credentials from IAM Role] EC2-SSM-Role
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\endpoints.json
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\sdk-default-configuration.json
+[DEBUG  ] [Event choose-service-name] calling handler <function handle_service_name_alias at 0x00000147F49E27A0>
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\sts\2011-06-15\service-2.json.gz
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\sts\2011-06-15\endpoint-rule-set-1.json.gz
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\partitions.json
+[DEBUG  ] [Event creating-client-class.sts] calling handler <function add_generate_presigned_url at 0x00000147F495FCE0>
+[DEBUG  ] [Looking for endpoint for sts via] environment_service
+[DEBUG  ] [Looking for endpoint for sts via] environment_global
+[DEBUG  ] [Looking for endpoint for sts via] config_service
+[DEBUG  ] [Looking for endpoint for sts via] config_global
+[DEBUG  ] No configured endpoint found.
+[DEBUG  ] Setting sts timeout as (0.2, 0.2)
+[DEBUG  ] [Loading JSON file] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\botocore\data\_retry.json
+[DEBUG  ] [Registering retry handlers for service] sts
+[DEBUG  ] [Event before-parameter-build.sts.GetCallerIdentity] calling handler <function generate_idempotent_uuid at 0x00000147F49F4860>
+[DEBUG  ] [Event before-parameter-build.sts.GetCallerIdentity] calling handler <function _handle_request_validation_mode_member at 0x00000147F49F7420> 
+[DEBUG  ] [Calling endpoint provider with parameters] {'Region': 'aws-global', 'UseDualStack': False, 'UseFIPS': False, 'UseGlobalEndpoint': False}    
+[DEBUG  ] [Endpoint provider result] https://sts.amazonaws.com
+[DEBUG  ] [Selecting from endpoint provider's list of auth schemes] "sigv4". User selected auth scheme is: "None"
+[DEBUG  ] [Selected auth type "v4" as "v4" with signing context params] {'region': 'us-east-1', 'signing_name': 'sts'}
+[DEBUG  ] [Event before-call.sts.GetCallerIdentity] calling handler <function add_recursion_detection_header at 0x00000147F49E2DE0>
+[DEBUG  ] [Event before-call.sts.GetCallerIdentity] calling handler <function inject_api_version_header_if_needed at 0x00000147F49F6340>
+[DEBUG  ] [Making request for OperationModel(name=GetCallerIdentity) with params] {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': 'Boto3/1.40.53 md/Botocore#1.40.53 ua/2.1 os/windows#2025Server md/arch#amd64 lang/python#3.13.7 md/pyimpl#CPython exec-env/EC2 m/Z,0,b,D cfg/retry-mode#legacy Botocore/1.40.53'}, 'body': {'Action': 'GetCallerIdentity', 'Version': '2011-06-15'}, 'url': 'https://sts.amazonaws.com/', 'context': {'client_region': 'aws-global', 'client_config': <botocore.config.Config object at 0x00000147F6934A50>, 'has_streaming_input': False, 'auth_type': 'v4', 'unsigned_payload': None, 'auth_options': ['aws.auth#sigv4'], 'signing': {'region': 'us-east-1', 'signing_name': 'sts'}, 'endpoint_properties': {'authSchemes': [{'name': 'sigv4', 'signingName': 'sts', 'signingRegion': 'us-east-1'}]}}}
+[DEBUG  ] [Event request-created.sts.GetCallerIdentity] calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x00000147F693ECF0>>
+[DEBUG  ] [Event choose-signer.sts.GetCallerIdentity] calling handler <function set_operation_specific_signer at 0x00000147F49F45E0>
+[DEBUG  ] Calculating signature using v4 auth.
+[DEBUG  ] [CanonicalRequest]
+POST
+/
+
+content-type:application/x-www-form-urlencoded; charset=utf-8
+host:sts.amazonaws.com
+x-amz-date:20251030T062742Z
+x-amz-security-token:****
+
+content-type;host;x-amz-date;x-amz-security-token
+****
+[DEBUG  ] [StringToSign]
+AWS4-HMAC-SHA256
+20251030T062742Z
+20251030/us-east-1/sts/aws4_request
+5008b296f79e2ccde771558d2a655fb319a2449373f864ebeb4bf33e27f1a8f4
+[DEBUG  ] [Signature   ]
+360ae98bec78b6433c9de4db2500df74bc7a418e33d9f0e2bca1d0fa7ad87e44
+[DEBUG  ] [Event request-created.sts.GetCallerIdentity] calling handler <bound method UserAgentString.rebuild_and_replace_user_agent_handler of <botocore.useragent.UserAgentString object at 0x00000147F6935950>>
+[DEBUG  ] [Event request-created.sts.GetCallerIdentity] calling handler <function add_retry_headers at 0x00000147F49F6CA0>
+[DEBUG  ] [Sending http request] <AWSPreparedRequest stream_output=False, method=POST, url=https://sts.amazonaws.com/, headers={'Content-Type': b'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': b'Boto3/1.40.53 md/Botocore#1.40.53 ua/2.1 os/windows#2025Server md/arch#amd64 lang/python#3.13.7 md/pyimpl#CPython exec-env/EC2 m/Z,0,b,D cfg/retry-mode#legacy Botocore/1.40.53', 'X-Amz-Date': b'20251030T062742Z', 'X-Amz-Security-Token': b'IQoJb3JpZ2luX2VjEC4aCmV1LW5vcnRoLTEiRjBEAiAO5TA7y1ChUa0n4FlTCHnRfeu/rxcaDVRFRt0G5WuOewIgPGTEcnKKMGqRp0DMFYR7CegzuY1q9pgxOW9b2UDcIo8qyQUI5///////////ARAAGgwxOTY1Mjc3MDU3ODYiDOhAhFSpTCUPMBKfByqdBUFPeqTssMIW8qb+Yofu6l0RHjR9+mL6y6H8OiX2pqV/99vySdOoNw3i7fn1jPPjC/zXsYfDKMxwFZe3ozX8JIRNxN8d7tcsUuuEcbfaeAmamSgsjqHeGnmlAdSXGziuu40aBBB86PAosoRj3m4U/pnP2K+uHdh0WJ/+cqwYXMigQowp21ZIyNtBrN7MT0FlY65jOgIHHjLuyKz8YBdqUue/tM9e63+AEzydck6vNgGt1xaoLiJgjtFQpGyVC2zx3ILEAitJYmykUaTM5ksoNHmHqPCgQpugCqVEtoa8a1lt6MEg3Zfyky7YZTUCIN2lRd6J7ObYo0YqgGGBgnWKl6XCzw2lL6Rc/tM9IvduYG+/GhmTUDGALx2RAVRwVVfLYhxOgzvIB77cDGhZ+pRD8vpcrlBtl1q3llcFSjp3o5s5WRiB3ZicbqbVqX8G51oPcZoE7KcP7LFwrYhxavQ3RH2smXX17bssL5Wd4ZvBGqSbUoOvBJ/Uiu1BVVvVKK5vwi9smIiMZu87vJ98WyG/GPmbOotBj+ynyqeAgff8xyGpUVO0EbCoIyRVlTYYOvovC88ZWRKq7Nsay1E7lJ07V1eApzXFOeRfN8yN6uDj36RP+Tfgocqe8SrcWsmM8DQxNGHtsbK3x/UM5zcYLT7lvn6bDjhBCTISDJXkJS/xS4wnOi7y7uFTF82eER8Hk3c0diJ2FMtVKz7I0zWAb7KvUPdAa04XkVhboPrCU8NjT2+cLl6N21wP8HYdmFeIbl69jCsMEZAm08dUpgl6jcJrN/IregNLSA/uMX70Op3Bi1CNzkqVZlb9Bwv35aFrrUzzFMX+KPOiy/nqjqWhs/JBLp9K5lk7/7uPxPqFn6ZjwgujLqUg2v1Nun+aBEx4qjCogYzIBjqyAWqH+HI3Nha9MVJrx7D0QxU0X2aomMC5lW6rbxaX9LF8EF3nw7b1MjTDwxdFHNZaT49ya4LDrt5ScYmVtyJnVj07x6mOZOwJQXYqCSM//ijq/+r4HLOuVrEIj3SN5JiZRbZLMQuT9fLGkb9mLKPK8AgqkFBxZwmJj4+p6z5E7hCWiWBtChqSnX+NcRJXz7l1H5FqGR4yRd/x/lj1z30yga914TrRsujZkaUozrlIrFa+LVs=', 'Authorization': b'AWS4-HMAC-SHA256 Credential=ASIAS3QPWZ25AX5TR2WC/20251030/us-east-1/sts/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-security-token, Signature=****', 'amz-sdk-invocation-id': b'0c1f02b0-13eb-4fc9-8d3d-e659dd6c9c1f', 'amz-sdk-request': b'attempt=1', 'Content-Length': '43'}>
+[DEBUG  ] [Certificate path] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\certifi\cacert.pem
+[DEBUG  ] [Starting new HTTPS connection (1)] sts.amazonaws.com:443
+[DEBUG  ] [https          ]//sts.amazonaws.com:443 "POST / HTTP/1.1" 200 457
+[DEBUG  ] [Response headers] {'x-amzn-RequestId': '3ff36faa-2a0c-466b-ae39-febdb5234ffb', 'X-Amz-Sts-Extended-Request-Id': 'MTp1cy1lYXN0LTE6UzoxNzYxODA1NjYzNDQ5Okc6YnNTT1Z6bzA=', 'Content-Type': 'text/xml', 'Content-Length': '457', 'Date': 'Thu, 30 Oct 2025 06:27:43 GMT'}
+[DEBUG  ] [Response body]
+b'<GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">\n  <GetCallerIdentityResult>\n    <Arn>arn:aws:sts::196527705786:assumed-role/EC2-SSM-Role/i-0d3ccfdee543b5968</Arn>\n    <UserId>AROAS3QPWZ25AS6TCY3ON:i-0d3ccfdee543b5968</UserId>\n    <Account>196527705786</Account>\n  </GetCallerIdentityResult>\n  <ResponseMetadata>\n    <RequestId>3ff36faa-2a0c-466b-ae39-febdb5234ffb</RequestId>\n  </ResponseMetadata>\n</GetCallerIdentityResponse>\n'
+[DEBUG  ] [Event needs-retry.sts.GetCallerIdentity] calling handler <botocore.retryhandler.RetryHandler object at 0x00000147F734C830>
+[DEBUG  ] No retry needed.
+[DEBUG  ] account=gpguymt-ta88699, user=ChakoraHub, database=VSRSUBHASH$CHAKORA_DB, schema=CHAKORA, warehouse=COMPUTE_WH, role=None, request_id=b4b87e0f-4909-4f71-a38c-a546e29ee54f
+[DEBUG  ] [body['data']] {'CLIENT_APP_ID': 'PythonConnector', 'CLIENT_APP_VERSION': '4.0.0', 'SVN_REVISION': None, 'ACCOUNT_NAME': 'gpguymt-ta88699', 'LOGIN_NAME': 'ChakoraHub', 'CLIENT_ENVIRONMENT': {'APPLICATION': 'PythonConnector', 'APPLICATION_PATH': 'c:\\mobile\\py\\main_app.py', 'OS': 'Windows', 'OS_VERSION': 'Windows-2025Server-10.0.26100-SP0', 'PYTHON_VERSION': '3.13.7', 'PYTHON_RUNTIME': 'CPython', 'PYTHON_COMPILER': 'MSC v.1944 64 bit (AMD64)', 'OCSP_MODE': 'FAIL_OPEN', 'CERT_REVOCATION_CHECK_MODE': 'DISABLED', 'TRACING': 0, 'LOGIN_TIMEOUT': None, 'NETWORK_TIMEOUT': None, 'SOCKET_TIMEOUT': None, 'PLATFORM': ['is_ec2_instance', 'has_aws_identity']}, 'PASSWORD': '******', 'SESSION_PARAMETERS': {'CLIENT_PREFETCH_THREADS': 4}}
+[DEBUG  ] [Converted retries value] 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+[DEBUG  ] [remaining request timeout] N/A ms, retry cnt: 1
+[DEBUG  ] [Request guid] e1af0996-a7c2-41cc-85aa-c83553dd663e
+[DEBUG  ] [socket timeout] 60
+[DEBUG  ] [Starting new HTTPS connection (1)] gpguymt-ta88699.snowflakecomputing.com:443
+[DEBUG  ] [CRL Check Mode] DISABLED
+[DEBUG  ] [OCSP Mode   ] FAIL_OPEN, OCSP response cache file name: None
+[DEBUG  ] [cache directory] C:\Users\Administrator\AppData\Local\Snowflake\Caches
+[DEBUG  ] [ocsp_response_cache_uri] file://C:/Users/Administrator/AppData/Local/Snowflake/Caches/ocsp_response_cache.json
+[DEBUG  ] [OCSP_VALIDATION_CACHE size] 418
+[DEBUG  ] [OCSP response cache server is enabled] http://ocsp.snowflakecomputing.com/ocsp_response_cache.json
+[DEBUG  ] [OCSP dynamic cache server RETRY URL] None
+[DEBUG  ] [validating certificate] gpguymt-ta88699.snowflakecomputing.com
+[DEBUG  ] [# of certificates] 3
+[DEBUG  ] [reading certificate bundle] C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\certifi\cacert.pem
+[DEBUG  ] [subject     ] OrderedDict({'country_name': 'US', 'state_or_province_name': 'Montana', 'locality_name': 'Bozeman', 'organization_name': 'Snowflake Inc.', 'common_name': '*.central-india.azure.snowflakecomputing.com'}), issuer: OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'})
+[DEBUG  ] [subject     ] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'}), issuer: OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'organizational_unit_name': 'www.digicert.com', 'common_name': 'DigiCert Global Root G2'})
+[DEBUG  ] [A trusted root certificate found] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'}), stopping chain traversal here
+[DEBUG  ] [not found issuer_der] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'organizational_unit_name': 'www.digicert.com', 'common_name': 'DigiCert Global Root G2'})
+[DEBUG  ] [hit cache for subject] OrderedDict({'country_name': 'US', 'state_or_province_name': 'Montana', 'locality_name': 'Bozeman', 'organization_name': 'Snowflake Inc.', 'common_name': '*.central-india.azure.snowflakecomputing.com'})
+[DEBUG  ] [hit cache for subject] OrderedDict({'country_name': 'US', 'organization_name': 'DigiCert Inc', 'common_name': 'DigiCert Global G2 TLS RSA SHA256 2020 CA1'})
+[DEBUG  ] ok
+[DEBUG  ] [https       ]//gpguymt-ta88699.snowflakecomputing.com:443 "POST /session/v1/login-request?request_id=b4b87e0f-4909-4f71-a38c-a546e29ee54f&databaseName=VSRSUBHASH%24CHAKORA_DB&schemaName=CHAKORA&warehouse=COMPUTE_WH&request_guid=e1af0996-a7c2-41cc-85aa-c83553dd663e HTTP/1.1" 200 402
+[DEBUG  ] SUCCESS
+[DEBUG  ] ret[code] = 394508, after post request
+[DEBUG  ] completed authentication
+❌ DB Connection Error: 250001 (08001): Failed to connect to DB: gpguymt-ta88699.snowflakecomputing.com:443. Failed to authenticate: MFA with TOTP is required. To authenticate, provide both your password and a current TOTP passcode.
+🔄 Refreshing category spinners...
+[ERROR  ] [Image       ] Not found <images/profile.jpg>
+[ERROR  ] [Image       ] Not found <images/logo.png>
+✅ Loaded upload.kv
+✅ Loaded offers.kv
+[ERROR  ] [Image       ] Not found <images/default.png>
+[ERROR  ] [Image       ] Not found <images/logo.jpg>
+[ERROR  ] [Image       ] Not found <images/default.png>
+[INFO   ] [GL          ] NPOT texture support is available
+ Traceback (most recent call last):
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 245, in create_handler
+     return eval(value, idmap), bound_list
+            ~~~~^^^^^^^^^^^^^^
+   File "C:\mobile\py\home.kv", line 148, in <module>
+     text: root.heading
+     ^^^^
+   File "kivy\\weakproxy.pyx", line 32, in kivy.weakproxy.WeakProxy.__getattr__
+ AttributeError: 'BatchBox' object has no attribute 'heading'
+
+ During handling of the above exception, another exception occurred:
+
+ Traceback (most recent call last):
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 699, in _apply_rule
+     value, bound = create_handler(
+                    ~~~~~~~~~~~~~~^
+         widget_set, widget_set, key, value, rule,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rctx['ids'])
+         ^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 248, in create_handler
+     raise BuilderException(rule.ctx, rule.line,
+                            '{}: {}'.format(e.__class__.__name__, e),
+                            cause=tb)
+ kivy.lang.builder.BuilderException: Parser: File "C:\mobile\py\home.kv", line 148:
+ ...
+     146:    Label:
+     147:        id: heading
+ >>  148:        text: root.heading
+     149:        color: 0, 0.5, 1, 1
+     150:        bold: True
+ ...
+ AttributeError: 'BatchBox' object has no attribute 'heading'
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 245, in create_handler
+     return eval(value, idmap), bound_list
+            ~~~~^^^^^^^^^^^^^^
+   File "C:\mobile\py\home.kv", line 148, in <module>
+     text: root.heading
+     ^^^^
+   File "kivy\\weakproxy.pyx", line 32, in kivy.weakproxy.WeakProxy.__getattr__
+
+
+ During handling of the above exception, another exception occurred:
+
+ Traceback (most recent call last):
+   File "c:\mobile\py\main_app.py", line 315, in <module>
+     ChakoraHubApp().run()
+     ~~~~~~~~~~~~~~~~~~~^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\app.py", line 955, in run
+     self._run_prepare()
+     ~~~~~~~~~~~~~~~~~^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\app.py", line 925, in _run_prepare
+     root = self.build()
+   File "c:\mobile\py\main_app.py", line 99, in build
+     self.root = Builder.load_file("home.kv")
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 310, in load_file
+     return self.load_string(data, **kwargs)
+            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 412, in load_string
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         widget, parser.root, parser.root,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 665, in _apply_rule
+     child.apply_class_lang_rules(
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+         root=rctx['ids']['root'], rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\uix\widget.py", line 470, in apply_class_lang_rules     
+     Builder.apply(
+     ~~~~~~~~~~~~~^
+         self, ignored_consts=ignored_consts,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 545, in apply
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         widget, rule, rule, ignored_consts=ignored_consts,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 667, in _apply_rule
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         child, crule, rootrule, rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 667, in _apply_rule
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         child, crule, rootrule, rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 667, in _apply_rule
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         child, crule, rootrule, rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   [Previous line repeated 2 more times]
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 665, in _apply_rule
+     child.apply_class_lang_rules(
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+         root=rctx['ids']['root'], rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\uix\widget.py", line 470, in apply_class_lang_rules
+     Builder.apply(
+     ~~~~~~~~~~~~~^
+         self, ignored_consts=ignored_consts,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 545, in apply
+     self._apply_rule(
+     ~~~~~~~~~~~~~~~~^
+         widget, rule, rule, ignored_consts=ignored_consts,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rule_children=rule_children)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 714, in _apply_rule
+     raise BuilderException(rule.ctx, rule.line,
+                            '{}: {}'.format(e.__class__.__name__,
+                                            e), cause=tb)
+ kivy.lang.builder.BuilderException: Parser: File "C:\mobile\py\home.kv", line 148:
+ ...
+     146:    Label:
+     147:        id: heading
+ >>  148:        text: root.heading
+     149:        color: 0, 0.5, 1, 1
+     150:        bold: True
+ ...
+ BuilderException: Parser: File "C:\mobile\py\home.kv", line 148:
+ ...
+     146:    Label:
+     147:        id: heading
+ >>  148:        text: root.heading
+     149:        color: 0, 0.5, 1, 1
+     150:        bold: True
+ ...
+ AttributeError: 'BatchBox' object has no attribute 'heading'
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 245, in create_handler
+     return eval(value, idmap), bound_list
+            ~~~~^^^^^^^^^^^^^^
+   File "C:\mobile\py\home.kv", line 148, in <module>
+     text: root.heading
+     ^^^^
+   File "kivy\\weakproxy.pyx", line 32, in kivy.weakproxy.WeakProxy.__getattr__
+
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 699, in _apply_rule
+     value, bound = create_handler(
+                    ~~~~~~~~~~~~~~^
+         widget_set, widget_set, key, value, rule,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         rctx['ids'])
+         ^^^^^^^^^^^^
+   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\kivy\lang\builder.py", line 248, in create_handler
+     raise BuilderException(rule.ctx, rule.line,
+                            '{}: {}'.format(e.__class__.__name__, e),
+                            cause=tb)
