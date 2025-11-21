@@ -4,9 +4,6 @@ Run this file to start the application
 """
 
 import os
-import ssl
-import certifi
-
 import re
 import json
 import smtplib
@@ -40,15 +37,6 @@ from cryptography.hazmat.backends import default_backend
 
 import snowflake.connector
 import platform
-from kivy.uix.image import Image
-
-os.environ.setdefault("SSL_CERT_FILE", certifi.where())
-
-img = Image(
-    source="https://chakorahub-student.s3.amazonaws.com/snaps/theme.png",
-    allow_stretch=True,
-    keep_ratio=False,
-)
 
 # ==================== CONFIGURATION ====================
 Window.size = (400, 700)
@@ -381,19 +369,9 @@ class OffersScreen(Screen):
 class ProfileScreen(Screen):
     address = StringProperty("")
 
-class FeedbackItem(BoxLayout):
-    """Used by RecycleView viewclass in home.kv (FeedbackItem rule expects msg & name)."""
-    msg = StringProperty("")
-    name = StringProperty("")
-
 class ResourcesScreen(Screen):
-    profile_pic = StringProperty("images/default_profile.png")
-    offers = DictProperty({})
-    greeting = StringProperty("Welcome")
-
     def image_path(self, filename):
         return f"images/{filename}"
-
 
 class SettingsScreen(Screen):
     username = StringProperty("")
@@ -548,206 +526,200 @@ class ChakoraHubApp(App):
     user_email = StringProperty("testuser@chakorahub.com")
     selected_file_path = StringProperty("No file selected")
     current_file_type = StringProperty("")
-
+    
     def build(self):
-        # ---------------- FIX FONT REGISTRATION  ----------------
-        try:
-            if platform.system() == "Windows":
-                LabelBase.register(name="EmojiFont", fn_regular="C:/Windows/Fonts/seguiemj.ttf")
-            elif platform.system() == "Darwin":  # macOS
-                LabelBase.register(name="EmojiFont", fn_regular="/System/Library/Fonts/Supplemental/Arial Unicode.ttf")
-            else:
-                LabelBase.register(name="EmojiFont", fn_regular="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")
-        except Exception as e:
-            print("⚠️ EmojiFont load failed, fallback to default. Error:", e)
-    # fallback without crashing
-
-    # 1) Load KV files except home.kv
-        kv_files = [
-        "aboutus.kv", "adminregister.kv", "billing.kv", "contactus.kv",
-        "enquiry.kv", "register.kv", "blogger.kv", "calender.kv",
-        "demovideos.kv", "feedback.kv", "offers.kv",
-        "profile.kv", "resources.kv", "settings.kv",
-        "student_report.kv", "upload.kv", "practice_test.kv"
-        ]
-
-        for kv in kv_files:
-            try:
-                Builder.load_file(kv)
-            except:
-                pass
-
-        # 2) Load ONLY home.kv as root
+        from kivy.lang import Builder
         self.root = Builder.load_file("home.kv")
-
-        print("💡 Loaded home.kv only once")
-
-        # 3) NOTHING else added manually (ScreenManager already in home.kv)
         return self.root
 
-
-    def _load_initial_data(self):
-        """Try to find the main/home screen and load initial data for it."""
-        try:
-            main_screen = None
-            if hasattr(self.root, "get_screen"):
-                for candidate in ("main", "main_screen", "home", "home_screen"):
-                    try:
-                        main_screen = self.root.get_screen(candidate)
-                        break
-                    except Exception:
-                        main_screen = None
-                if main_screen:
-                    # Prefer screen-level loader if available
-                    if hasattr(main_screen, "load_home_data"):
-                        try:
-                            main_screen.load_home_data()
-                            print("Called main_screen.load_home_data()")
-                        except Exception as e:
-                            print("main_screen.load_home_data() error:", e)
-                    else:
-                        # fallback to app-level loader
-                        try:
-                            self.load_data(main_screen)
-                            print("Called app.load_data(main_screen)")
-                        except Exception as e:
-                            print("app.load_data failed:", e)
-                else:
-                    print("Main screen not found for initial load.")
-            else:
-                print("Root has no get_screen; cannot load initial data.")
-        except Exception as e:
-            print("_load_initial_data failure:", e)
-
-    # S3 helper (use app.get_s3_image('logo') in KV)
+        # print("Starting ChakoraHub App...")
+        
+        # # Register a safe, cross-platform font
+        # try:
+        #     if platform.system() == "Windows":
+        #         LabelBase.register(name="EmojiFont", fn_regular="C:/Windows/Fonts/seguiemj.ttf")
+        #     elif platform.system() == "Darwin":
+        #         LabelBase.register(name="EmojiFont", fn_regular="/System/Library/Fonts/Supplemental/Arial Unicode.ttf")
+        #     else:
+        #         LabelBase.register(name="EmojiFont", fn_regular="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")
+        # except Exception as e:
+        #     print(f"Emoji font not loaded: {e}")
+        
+        # # Load all KV files
+        # kv_files = [
+        #     "aboutus.kv", "adminregister.kv","billing.kv", "contactus.kv", "enquiry.kv",
+        #     "register.kv", "blogger.kv", "calender.kv", "demovideos.kv", "home.kv",
+        #     "feedback.kv", "offers.kv", "profile.kv", "resources.kv","profile.kv","resources.kv",
+        #     "settings.kv", "student_report.kv", "upload.kv","practice_test.kv"
+        # ]
+        
+        # for kv_file in kv_files:
+        #     try:
+        #         Builder.load_file(kv_file)
+        #         print(f"Loaded {kv_file}")
+        #     except Exception as e:
+        #         print(f"Failed to load {kv_file}: {e}")
+        
+        # # Create ScreenManager from home.kv
+        # try:
+        #     #self.root = Builder.load_file("home.kv")
+        #     print("Successfully loaded home.kv")
+        # except Exception as e:
+        #     print(f"Error loading home.kv: {e}")
+        #     self.root = ScreenManager()
+        #     main_screen = MainScreen(name="main")
+        #     self.root.add_widget(main_screen)
+        #     print("Created fallback screen manager")
+        
+        # # Add all screens
+        # print("Adding screens...")
+        # screens_to_add = [
+        #     (AboutUsScreen, "aboutus_screen"),
+        #     (AdminRegisterForm, "adminregister"),
+        #     (ContactUsScreen, "contactus_screen"),
+        #     (EnquiryScreen, "enquiry_screen"),
+        #     (RegisterScreen, "register"),
+        #     (BloggerRoot, "blogger_screen"),
+        #     (CalendarScreen, "calendar_screen"),
+        #     (DemoVideosScreen, "demo_videos_screen"),
+        #     (FeedbackScreen, "feedback_screen"),
+        #     (OffersScreen, "offers_screen"),
+        #     (ProfileScreen, "profile_screen"),
+        #     (ResourcesScreen, "resources_screen"),
+        #     (SettingsScreen, "settings_screen"),
+        #     (StudentReportScreen, "student_report_screen"),
+        #     (AdminPortalScreen, "admin_portal"),
+        #     (BillingScreen, "billing_screen")
+        # ]
+        
+        # for screen_class, screen_name in screens_to_add:
+        #     try:
+        #         if screen_name not in self.root.screen_names:
+        #             self.root.add_widget(screen_class(name=screen_name))
+        #             print(f"Added {screen_name}")
+        #         else:
+        #             print(f"{screen_name} already exists")
+        #     except Exception as e:
+        #         print(f"Failed to add {screen_name}: {e}")
+        
+        # print(f"Total screens: {len(self.root.screen_names)}")
+        
+        # # Load initial data
+        # try:
+        #     main_screen = self.root.get_screen("main")
+        #     Clock.schedule_once(lambda dt: self.load_data(main_screen), 0.1)
+        # except Exception as e:
+        #     print(f"Error loading initial data: {e}")
+        
+        # print("App built successfully!")
+        # return self.root
+    
     def get_s3_image(self, image_name):
+        """Return full S3 URL for given image name"""
         base_url = "https://chakorahub-student.s3.amazonaws.com/snaps/"
         image_map = {
             'logo': base_url + 'logo.png',
-            'theme': base_url + 'theme.gif',   # prefer gif/png that Kivy supports; ensure it's present
-            'profile': base_url + 'default_profile.png',
+            'theme': base_url + 'theme.gif'
         }
+    # Fallback image (can use a default hosted image)
         return image_map.get(image_name, base_url + 'logo.png')
-
-    # File chooser helpers (unchanged)
+    
     def choose_file(self, file_type):
+        """Open file chooser"""
         self.current_file_type = file_type
         popup = FileChooserPopup(file_type=file_type, callback=self.on_file_selected)
         popup.open()
-
+    
     def on_file_selected(self, file_path):
+        """File selected callback"""
         self.selected_file_path = file_path
         print(f"Selected file: {file_path}")
+        
         try:
-            if hasattr(self.root, "get_screen") and "admin_portal" in self.root.screen_names:
-                admin_screen = self.root.get_screen("admin_portal")
-                filename = os.path.basename(file_path)
-                if hasattr(admin_screen, "ids") and "flash_msg" in admin_screen.ids:
-                    admin_screen.ids.flash_msg.text = f"[color=0000ff]Selected: {filename}[/color]"
+            admin_screen = self.root.get_screen("admin_portal")
+            filename = os.path.basename(file_path)
+            admin_screen.ids.flash_msg.text = f"[color=0000ff]Selected: {filename}[/color]"
         except Exception as e:
             print(f"Error updating admin screen: {e}")
-
-    # ---------------- Authentication ----------------
-    def login_user(self, username, password, message_label=None):
-        """Call Lambda login — navigates to resources_screen on success."""
+    
+    def login_user(self, username, password, message_label):
+        """User login using Lambda API"""
         if not username or not password:
-            if message_label:
-                message_label.text = "[color=ff0000]Please fill both fields[/color]"
-            return {"success": False, "message": "Missing credentials"}
+            message_label.text = "[color=ff0000]Please fill both fields[/color]"
+            return
 
-    # --- Lambda call ---
-        try:
-            payload = {"action": "login", "data": {"username": username, "password": password}}
-            result = call_lambda_api("home", method="POST", data=payload)
-        except Exception as e:
-            print("Login API exception:", e)
-            result = None
-
-        if result and result.get("success"):
-            # Success
-            user_data = result.get("user", {})
+        # Call Lambda API for login
+        
+        result = call_lambda_api("home", method="POST", data={"action": "login","data": {"username": username, "password": password}})
+        
+        if result and result.get('success'):
+            user_data = result.get('user', {})
             self.logged_in_user = user_data
             self.logged_in_email = username
             self.user_email = username
+            
+            message_label.text = f"[color=008000]Welcome {user_data.get('USERNAME', username)}![/color]"
 
-            if message_label:
-                message_label.text = f"[color=008000]Welcome {user_data.get('USERNAME', username)}![/color]"
-
-        # --- Navigate to resources_screen safely ---
+            # Navigate to resources
+            if "resources_screen" in self.root.screen_names:
+                self.root.current = 'resources_screen'
+            
+            # Clear login fields
             try:
-                if hasattr(self.root, "screen_names") and "resources_screen" in self.root.screen_names:
-                    self.root.current = "resources_screen"
-                    print("Switched to resources_screen")
-                else:
-                    # Create screen dynamically if missing
-                    res = ResourcesScreen(name="resources_screen")
-                    self.root.add_widget(res)
-                    self.root.current = "resources_screen"
-                    print("Created and switched to resources_screen")
+                main_screen = self.root.get_screen('main')
+                main_screen.ids.login_box.ids.username_input.text = ""
+                main_screen.ids.login_box.ids.password_input.text = ""
+                main_screen.ids.login_box.ids.message_label.text = ""
             except Exception as e:
-                print("Navigation after login failed:", e)
-
-            return result
-
+                print(f"Error clearing login fields: {e}")
         else:
-            # Failed
-            error_msg = result.get("message") if result else "Connection error"
-            if message_label:
-                message_label.text = f"[color=ff0000]{error_msg}[/color]"
-            print("Login failed:", error_msg)
-            return {"success": False, "message": error_msg}
-
-
+            error_msg = result.get('message', 'Login failed') if result else 'Connection error'
+            message_label.text = f"[color=ff0000]{error_msg}[/color]"
 
     def logout_user(self):
+        """Logout user"""
         print("Logging out user")
         self.logged_in_user = None
         self.logged_in_email = ""
         self.user_email = ""
-        try:
-            if hasattr(self.root, "current"):
-                self.root.current = "main"
-        except Exception as e:
-            print("Logout navigation failed:", e)
+        self.root.current = 'main'
+        print("Logout successful")
 
     def go_to(self, screen_name):
-        """Navigate to a screen safely (pass either 'resources' or 'resources_screen')."""
-        target = screen_name if screen_name.endswith("_screen") else f"{screen_name}_screen"
-        try:
-            if hasattr(self.root, "screen_names") and target in self.root.screen_names:
-                self.root.current = target
-            else:
-                print(f"No screen named {target}")
-        except Exception as e:
-            print(f"Navigation error to {target}: {e}")
+        """Navigate to screen"""
+        self.root.current = f"{screen_name}_screen"
 
-    # ---------------- Data loading ----------------
     def load_data(self, screen):
-        """Main data loader (attempts Lambda first, fallback to DB)."""
+        """Load initial data for main screen using Lambda API"""
         try:
-            resp = call_lambda_api("home", method="POST", data={"action": "fetch_batches"})
-            if resp and resp.get("data"):
-                data = resp.get("data")
-                current = data.get("current_batches", [])
-                upcoming = data.get("upcoming_batches", [])
-                feedbacks = data.get("feedback", [])
-                self.populate_ui(screen, current, upcoming, feedbacks)
+            # Try Lambda API first
+            response = call_lambda_api("home", method="POST", data={"action": "fetch_batches"})
+            
+            if result and result.get('success'):
+                data = result.get('data', {})
+                current_batches = data.get('current_batches', [])
+                upcoming_batches = data.get('upcoming_batches', [])
+                feedbacks = data.get('feedbacks', [])
+                self.populate_ui(screen, current_batches, upcoming_batches, feedbacks)
             else:
-                # fallback
+                # Fallback to direct database
                 self.load_data_from_db(screen)
+                
         except Exception as e:
-            print("Error loading data:", e)
+            print(f"Error loading data: {e}")
             self.load_fallback_data(screen)
 
     def load_data_from_db(self, screen):
+        """Load data directly from database"""
         try:
             conn = get_db_connection()
             if not conn:
-                print("DB connection not available")
                 self.load_fallback_data(screen)
                 return
+            
             cursor = conn.cursor()
-            # queries... (same as before)
+            
+            # Current batches
             cursor.execute("""
                 SELECT c.course_name, l.language AS language_name
                 FROM nrm_registrations r
@@ -756,7 +728,9 @@ class ChakoraHubApp(App):
                 JOIN nrm_languages l ON r.language_id = l.id
                 WHERE LOWER(s.status) = 'active'
             """)
-            current = fetch_as_dicts(cursor)
+            current_batches = fetch_as_dicts(cursor)
+            
+            # Upcoming batches
             cursor.execute("""
                 SELECT c.course_name, l.language AS language_name
                 FROM nrm_registrations r
@@ -765,7 +739,9 @@ class ChakoraHubApp(App):
                 JOIN nrm_languages l ON r.language_id = l.id
                 WHERE LOWER(s.status) = 'pending'
             """)
-            upcoming = fetch_as_dicts(cursor)
+            upcoming_batches = fetch_as_dicts(cursor)
+            
+            # Feedbacks
             cursor.execute("""
                 SELECT u.username, f.feedback_message
                 FROM nrm_feedback f
@@ -773,44 +749,48 @@ class ChakoraHubApp(App):
                 ORDER BY f.submitted_at DESC LIMIT 20
             """)
             feedbacks = fetch_as_dicts(cursor)
-            try:
-                cursor.close()
-            except Exception:
-                pass
-            try:
-                conn.close()
-            except Exception:
-                pass
-            self.populate_ui(screen, current, upcoming, feedbacks)
+            
+            conn.close()
+            self.populate_ui(screen, current_batches, upcoming_batches, feedbacks)
+            
         except Exception as e:
-            print("Error loading data from DB:", e)
+            print(f"Error loading data from DB: {e}")
             self.load_fallback_data(screen)
 
     def populate_ui(self, screen, current_batches, upcoming_batches, feedbacks):
+        """Populate UI with data"""
         try:
             black_text = (0, 0, 0, 1)
-            if hasattr(screen, "ids"):
-                if "current_batches" in screen.ids and hasattr(screen.ids.current_batches, "ids"):
-                    rv = screen.ids.current_batches.ids.rv
-                    rv.data = [
-                        {"text": f"{c['course_name']} - {c['language_name']}", "color": black_text}
-                        for c in current_batches
-                    ] or [{"text": "No Current Batches", "color": black_text}]
-                if "upcoming_batches" in screen.ids and hasattr(screen.ids.upcoming_batches, "ids"):
-                    rv2 = screen.ids.upcoming_batches.ids.rv
-                    rv2.data = [
-                        {"text": f"{c['course_name']} - {c['language_name']}", "color": black_text}
-                        for c in upcoming_batches
-                    ] or [{"text": "No Upcoming Batches", "color": black_text}]
-                if "feedback_rv" in screen.ids:
-                    screen.ids.feedback_rv.data = [
-                        {"msg": f['feedback_message'], "name": f['username']}
-                        for f in feedbacks
-                    ] or [{"msg": "No feedback available", "name": ""}]
+            
+            # Set headings for batch boxes
+            if hasattr(screen.ids, 'current_batches'):
+                screen.ids.current_batches.heading = "Current Batches"
+            if hasattr(screen.ids, 'upcoming_batches'):
+                screen.ids.upcoming_batches.heading = "Upcoming Batches"
+            
+            if hasattr(screen.ids, 'current_batches') and hasattr(screen.ids.current_batches.ids, 'rv'):
+                screen.ids.current_batches.ids.rv.data = [
+                    {"text": f"{c['course_name']} - {c['language_name']}", "color": black_text}
+                    for c in current_batches
+                ] or [{"text": "No Current Batches", "color": black_text}]
+
+            if hasattr(screen.ids, 'upcoming_batches') and hasattr(screen.ids.upcoming_batches.ids, 'rv'):
+                screen.ids.upcoming_batches.ids.rv.data = [
+                    {"text": f"{c['course_name']} - {c['language_name']}", "color": black_text}
+                    for c in upcoming_batches
+                ] or [{"text": "No Upcoming Batches", "color": black_text}]
+
+            if hasattr(screen.ids, 'feedback_rv'):
+                screen.ids.feedback_rv.data = [
+                    {"msg": f['feedback_message'], "name": f['username']}
+                    for f in feedbacks
+                ] or [{"msg": "No feedback available", "name": ""}]
+            
         except Exception as e:
-            print("UI population failed:", e)
+            print(f"UI population failed: {e}")
 
     def load_fallback_data(self, screen):
+        """Load fallback data if DB fails"""
         print("Loading fallback data...")
         self.populate_ui(
             screen,
